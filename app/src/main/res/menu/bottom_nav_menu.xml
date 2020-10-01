@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/home_menu_item"
+        android:icon="@drawable/ic_home"
+        android:title="@string/beranda" />
+    <item
+        android:id="@+id/proposal_menu_item"
+        android:icon="@drawable/ic_proposal"
+        android:title="@string/proposal" />
+    <item
+        android:id="@+id/tugas_akhir_menu_item"
+        android:icon="@drawable/ic_tugas_akhir"
+        android:title="@string/tugas_akhir" />
+    <item
+        android:id="@+id/chat_menu_item"
+        android:icon="@drawable/ic_chat"
+        android:title="@string/pesan" />
+</menu>

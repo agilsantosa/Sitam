@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.auth.LoginFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tinpm"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="32dp"
+            app:hintEnabled="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:startIconDrawable="@drawable/ic_person_black_24dp">
+
+            <EditText
+                android:id="@+id/etNpm"
+                style="@style/MySchool.TextAppearance.Title1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/npm"
+                android:imeOptions="actionNext"
+                android:inputType="number"
+                android:singleLine="true" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/img_login_header"
+            app:layout_constraintDimensionRatio="H,0.4"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tipassword"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="32dp"
+            app:endIconMode="password_toggle"
+            app:hintEnabled="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tinpm"
+            app:startIconDrawable="@drawable/ic_vpn_key_black_24dp">
+
+            <EditText
+                android:id="@+id/etPassword"
+                style="@style/MySchool.TextAppearance.Title1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/password"
+                android:imeOptions="actionDone"
+                android:inputType="textPassword"
+                android:singleLine="true" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_sign_in"
+            style="@style/MySchool.MaterialButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="32dp"
+            android:backgroundTint="@color/colorAccent"
+            android:text="@string/sign_in"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tipassword" />
+
+        <TextView
+            android:id="@+id/tv_blm_mempunyai_akun"
+            style="@style/MySchool.TextAppearance.Title1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="@string/don_t_have_an_account"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_sign_in" />
+
+        <TextView
+            android:id="@+id/tv_sign_up"
+            style="@style/MySchool.TextAppearance.Title1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="16dp"
+            android:text="@string/create_account"
+            android:textColor="@color/colorPrimary"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/tv_blm_mempunyai_akun"
+            app:layout_constraintStart_toStartOf="@+id/tv_blm_mempunyai_akun"
+            app:layout_constraintTop_toBottomOf="@+id/tv_blm_mempunyai_akun"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <ProgressBar
+            android:id="@+id/activity_login_progress_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>

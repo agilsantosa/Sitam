@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/chat_menu_item"
+    app:startDestination="@id/chatMahasiswaFragment2"
+    tools:ignore="UnusedNavigation">
+
+    <fragment
+        android:id="@+id/chatMahasiswaFragment2"
+        android:name="com.example.sitam.ui.chat.ChatMahasiswaFragment"
+        android:label="fragment_chat_mahasiswa"
+        tools:layout="@layout/fragment_chat_mahasiswa" />
+</navigation>

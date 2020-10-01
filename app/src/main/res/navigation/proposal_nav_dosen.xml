@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/proposal_menu_item"
+    tools:ignore="UnusedNavigation"
+    app:startDestination="@id/proposalDosenFragment">
+
+    <fragment
+        android:id="@+id/proposalDosenFragment"
+        android:name="com.example.sitam.ui.proposal.dosen.ProposalDosenFragment"
+        android:label="fragment_proposal_dosen"
+        tools:layout="@layout/fragment_proposal_dosen" >
+        <action
+            android:id="@+id/action_proposalDosenFragment_to_listBimbinganProposalDosenFragment"
+            app:destination="@id/listBimbinganProposalDosenFragment"
+            app:popUpToInclusive="false" />
+        <action
+            android:id="@+id/action_proposalDosenFragment_to_listBimbinganSeminarViewDosenFragment"
+            app:destination="@id/listBimbinganSeminarViewDosenFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/proposalTabDosenFragment"
+        android:name="com.example.sitam.ui.proposal.dosen.ProposalTabDosenFragment"
+        android:label="fragment_proposal_tab_dosen"
+        tools:layout="@layout/fragment_proposal_tab_dosen" />
+    <fragment
+        android:id="@+id/listBimbinganProposalDosenFragment"
+        android:name="com.example.sitam.ui.proposal.dosen.ListBimbinganProposalDosenFragment"
+        android:label="fragment_list_bimbingan_proposal_dosen"
+        tools:layout="@layout/fragment_list_bimbingan_proposal_dosen" >
+        <action
+            android:id="@+id/action_listBimbinganProposalDosenFragment_to_proposalDosenFragment"
+            app:destination="@id/proposalDosenFragment"
+            app:popUpTo="@id/proposalDosenFragment"
+            app:popUpToInclusive="true" />
+        <argument
+            android:name="idProposal"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_listBimbinganProposalDosenFragment_to_detailBimbinganProposalDosenFragment"
+            app:destination="@id/detailBimbinganProposalDosenFragment"
+            app:popUpToInclusive="false" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailBimbinganProposalDosenFragment"
+        android:name="com.example.sitam.ui.proposal.dosen.DetailBimbinganProposalDosenFragment"
+        android:label="fragment_detail_bimbingan_proposal_dosen"
+        tools:layout="@layout/fragment_detail_bimbingan_proposal_dosen" >
+        <argument
+            android:name="proposalFile"
+            app:argType="com.example.sitam.models.proposal.DataListProposal" />
+        <action
+            android:id="@+id/action_detailBimbinganProposalDosenFragment_to_listBimbinganProposalDosenFragment"
+            app:destination="@id/listBimbinganProposalDosenFragment"
+            app:popUpTo="@id/listBimbinganProposalDosenFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/listBimbinganSeminarViewDosenFragment"
+        android:name="com.example.sitam.ui.seminar.dosen.ListBimbinganSeminarViewDosenFragment"
+        android:label="fragment_list_bimbingan_seminar_view_dosen"
+        tools:layout="@layout/fragment_list_bimbingan_seminar_view_dosen" >
+        <action
+            android:id="@+id/action_listBimbinganSeminarViewDosenFragment_to_detailBimbinganSeminarViewDosenFragment"
+            app:destination="@id/detailBimbinganSeminarViewDosenFragment" />
+        <action
+            android:id="@+id/action_listBimbinganSeminarViewDosenFragment_to_proposalDosenFragment"
+            app:destination="@id/proposalDosenFragment"
+            app:popUpTo="@id/proposalDosenFragment"
+            app:popUpToInclusive="true" />
+        <argument
+            android:name="dataBimbinganSeminar"
+            app:argType="com.example.sitam.models.seminar.DataBimbinganSeminarDosen" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailBimbinganSeminarViewDosenFragment"
+        android:name="com.example.sitam.ui.seminar.dosen.DetailBimbinganSeminarViewDosenFragment"
+        android:label="fragment_detail_bimbingan_seminar_view_dosen"
+        tools:layout="@layout/fragment_detail_bimbingan_seminar_view_dosen" >
+        <action
+            android:id="@+id/action_detailBimbinganSeminarViewDosenFragment_to_listBimbinganSeminarViewDosenFragment"
+            app:destination="@id/listBimbinganSeminarViewDosenFragment"
+            app:popUpTo="@id/listBimbinganSeminarViewDosenFragment"
+            app:popUpToInclusive="true" />
+        <argument
+            android:name="datalistBimbingan"
+            app:argType="com.example.sitam.models.seminar.DataListBimbinganSeminarDosen" />
+    </fragment>
+</navigation>

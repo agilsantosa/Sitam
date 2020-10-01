@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.ta.mhs.TugasAkhirMahasiswaFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:theme="@style/MySchoolToolbarTheme"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/activity_classroom_detail_toolbar_title"
+                style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:fontFamily="@font/airbnb_cereal_medium"
+                android:lines="1"
+                android:text="@string/tugas_akhir"
+                android:textColor="@color/toolbarFontColor" />
+        </androidx.appcompat.widget.Toolbar>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView_ta_mhs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="8dp"
+            android:visibility="gone"
+            app:cardBackgroundColor="#F0F0F0"
+            app:cardCornerRadius="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/toolbar">
+
+            <TableLayout
+                android:id="@+id/tablelayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="8dp">
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="4dp">
+
+                    <TextView
+                        android:id="@+id/lbl_konsentrasi_ta"
+                        style="@style/MySchool.TextAppearance.Title1"
+                        android:text="@string/konsentrasi"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tv_konsentrasi_ta"
+                        style="@style/MySchool.TextAppearance.Title1"
+                        android:layout_marginStart="10dp"
+                        android:text="@string/strip" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="4dp">
+
+                    <TextView
+                        android:id="@+id/lbl_topik_ta"
+                        style="@style/MySchool.TextAppearance.Title1"
+                        android:text="@string/topik_tugas_akhir"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tv_topik_ta"
+                        style="@style/MySchool.TextAppearance.Title1"
+                        android:layout_marginStart="10dp"
+                        android:text="@string/strip" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="4dp">
+
+                    <TextView
+                        android:id="@+id/lbl_tahunpengajuan_ta"
+                        style="@style/MySchool.TextAppearance.Title1"
+                        android:text="@string/tahun_pengajuan"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tv_tahun_pengajuan_ta"
+                        style="@style/MySchool.TextAppearance.Title1"
+                        android:layout_marginStart="10dp"
+                        android:text="@string/strip" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="4dp">
+
+                    <TextView
+                        android:id="@+id/lbl_status"
+                        style="@style/MySchool.TextAppearance.Title1"
+                        android:text="@string/status"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tv_status_ta"
+                        style="@style/MySchool.TextAppearance.Title1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:text="@string/strip" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="4dp">
+
+                    <TextView
+                        android:id="@+id/lbl_nilai"
+                        style="@style/MySchool.TextAppearance.Title1"
+                        android:text="@string/nilai"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tv_nilai_ta"
+                        style="@style/MySchool.TextAppearance.Title1"
+                        android:layout_marginStart="10dp"
+                        android:text="@string/_0" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="4dp">
+
+                    <TextView
+                        android:id="@+id/lbl_pembimbing1"
+                        style="@style/MySchool.TextAppearance.Title1"
+                        android:text="@string/pembimbing_1"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tv_pembimbing_1"
+                        style="@style/MySchool.TextAppearance.Title1"
+                        android:layout_marginStart="10dp"
+                        android:text="@string/strip" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="4dp">
+
+                    <TextView
+                        android:id="@+id/lbl_pembimbing_2"
+                        style="@style/MySchool.TextAppearance.Title1"
+                        android:text="@string/pembimbing_2"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tv_pembimbing_2"
+                        style="@style/MySchool.TextAppearance.Title1"
+                        android:layout_marginStart="10dp"
+                        android:text="@string/strip" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="4dp">
+
+                    <TextView
+                        android:id="@+id/lbl_penguji1"
+                        style="@style/MySchool.TextAppearance.Title1"
+                        android:text="@string/penguji_1"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tv_penguji1"
+                        style="@style/MySchool.TextAppearance.Title1"
+                        android:layout_marginStart="10dp"
+                        android:text="@string/strip" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="4dp">
+
+                    <TextView
+                        android:id="@+id/lbl_penguji2"
+                        style="@style/MySchool.TextAppearance.Title1"
+                        android:text="@string/penguji_2"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tv_penguji2"
+                        style="@style/MySchool.TextAppearance.Title1"
+                        android:layout_marginStart="10dp"
+                        android:text="@string/strip" />
+                </TableRow>
+
+            </TableLayout>
+        </androidx.cardview.widget.CardView>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fabDetailTa"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:visibility="gone"
+            android:layout_marginBottom="16dp"
+            android:src="@drawable/ic_ta_white"
+            android:theme="@style/CustomFabTheme"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fabKolokium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:src="@drawable/ic_detail"
+            android:theme="@style/CustomFabThemeSecondary"
+            android:visibility="gone"
+            app:fabSize="mini"
+            app:layout_constraintBottom_toTopOf="@+id/fabDetailTa"
+            app:layout_constraintEnd_toEndOf="@+id/fabDetailTa"
+            app:layout_constraintStart_toStartOf="@+id/fabDetailTa" />
+
+        <ProgressBar
+            android:id="@+id/progress_bar_ta"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_empty_ta"
+            style="@style/MySchool.TextAppearance.GrandTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:visibility="gone"
+            android:text="Anda Belum bisa ke tahap ini"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

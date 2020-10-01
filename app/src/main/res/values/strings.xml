@@ -1,0 +1,93 @@
+<resources>
+    <string name="app_name">Sitam</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="npm">Npm</string>
+    <string name="password">Password</string>
+    <string name="sign_in">Login</string>
+    <string name="don_t_have_an_account">Don\'t have an account?</string>
+    <string name="create_account">Create Account</string>
+    <string name="nama">Nama</string>
+    <string name="no_telp">No Telp</string>
+    <string name="alamat">Alamat</string>
+    <string name="already_have_an_account">Already have an account?</string>
+    <string name="retype_password">Retype Password</string>
+    <string name="login">Login</string>
+    <string name="iv_header">iv_header</string>
+    <string name="beranda">Beranda</string>
+    <string name="proposal">Proposal</string>
+    <string name="tugas_akhir">Tugas Akhir</string>
+    <string name="kolokium">Kolokium</string>
+    <string name="pesan">Pesan</string>
+    <string name="universitas_indraprasta">Universitas Indraprasta</string>
+    <string name="iv_background">iv_background</string>
+    <string name="topik_proposal">Topik Proposal</string>
+    <string name="konsentrasi">Konsentrasi</string>
+    <string name="tahun_pengajuan">Tahun Pengajuan</string>
+    <string name="pembimbing">Pembimbing</string>
+    <string name="status">Status</string>
+    <string name="penguji">Penguji</string>
+    <string name="nilai">Nilai</string>
+    <string name="judul_proposal">Judul Proposal</string>
+    <string name="buat_proposal">Buat Proposal</string>
+    <string name="add">Add</string>
+    <string name="seminar">Seminar</string>
+    <string name="detail">Detail</string>
+    <string name="add_proposal">Buat Proposal</string>
+    <string name="upload_file">Upload File</string>
+    <string name="enter_file_name">Enter File Name</string>
+    <string name="enter_note">Enter Note</string>
+    <string name="catatan">Catatan</string>
+    <string name="file">File</string>
+    <string name="dibuat">Dibuat</string>
+    <string name="detail_bimbingan_proposal">Detail Bimbingan Proposal</string>
+    <string name="tab_proposal">Proposal</string>
+    <string name="tab_seminar">Seminar</string>
+    <string name="proposal_dan_seminar">Proposal dan Seminar</string>
+    <string name="sitam">Sitam</string>
+    <string name="list_bimbingan_proposal">List Bimbingan Proposal</string>
+    <string name="download_file">Download</string>
+    <string name="catatan_untuk_mahasiswa">Catatan untuk mahasiswa</string>
+    <string name="simpan">Simpan</string>
+    <string name="approved">Approved</string>
+    <string name="revisi">Revisi</string>
+    <string name="daftar_seminar">Daftar Seminar</string>
+    <string name="saat_ini_anda_belum_terdaftar_sebagai_peserta_seminar">Saat ini anda belum terdaftar sebagai peserta seminar</string>
+    <string name="saat_ini_anda_belum_terdaftar_sebagai_peserta_kolokium">Saat ini anda belum terdaftar sebagai peserta Kolokium</string>
+    <string name="cancel">Cancel</string>
+    <string name="daftar">Daftar</string>
+    <string name="upload">Upload</string>
+    <string name="bimbingan_masih_kosong">Bimbingan Masih Kosong</string>
+    <string name="revisi_seminar">Revisi Seminar</string>
+    <string name="tanggal_sidang">Tanggal Sidang</string>
+    <string name="anda_sebagai">Anda Sebagai</string>
+    <string name="list_bimbingan_seminar">List Bimbingan Seminar</string>
+    <string name="detail_bimbingan_seminar">Detail Bimbingan Seminar</string>
+    <string name="topik_tugas_akhir">Topik Tugas Akhir</string>
+    <string name="pembimbing_1">Pembimbing 1</string>
+    <string name="pembimbing_2">Pembimbing 2</string>
+    <string name="penguji_1">Penguji 1</string>
+    <string name="penguji_2">Penguji 2</string>
+    <string name="strip">-</string>
+    <string name="_0">0</string>
+    <string name="bimbingan_tugas_akhir">Bimbingan Tugas Akhir</string>
+    <string name="revisi_tugas_akhir">Revisi Tugas Akhir</string>
+    <string name="tugas_akhir_dan_kolokium">Tugas Akhir dan Kolokium</string>
+    <string name="list_bimbingan_tugas_akhir">List Bimbingan Tugas Akhir</string>
+    <string name="detail_bimbingan_tugas_akhir">Detail Bimbingan Tugas Akhir</string>
+    <string name="daftar_kolokium">Daftar Kolokium</string>
+    <string name="revisi_kolokium">Revisi Kolokium</string>
+    <string name="detail_bimbingan_kolokium">Detail Bimbingan Kolokium</string>
+    <string name="list_bimbingan_kolokium">List Bimbingan Kolokium</string>
+    <string name="tidak_ada_pesan">Tidak ada pesan</string>
+    <string-array name="konsentrasi_array">
+        <item>Data Science</item>
+        <item>Networking</item>
+        <item>Rancang Bangun</item>
+    </string-array>
+
+    <string-array name="status_array">
+        <item>Approved</item>
+        <item>Revisi</item>
+    </string-array>
+</resources>

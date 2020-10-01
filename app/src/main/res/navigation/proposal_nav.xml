@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/proposal_menu_item"
+    app:startDestination="@id/proposalMahasiswaFragment2"
+    tools:ignore="UnusedNavigation">
+
+    <fragment
+        android:id="@+id/proposalMahasiswaFragment2"
+        android:name="com.example.sitam.ui.proposal.mhs.ProposalMahasiswaFragment"
+        android:label="fragment_proposal_mahasiswa"
+        tools:layout="@layout/fragment_proposal_mahasiswa" >
+        <action
+            android:id="@+id/action_proposalMahasiswaFragment2_to_addProposalFragment"
+            app:destination="@id/addProposalFragment" />
+        <action
+            android:id="@+id/action_proposalMahasiswaFragment2_to_detailBimbinganProposalMhsActivity"
+            app:destination="@id/detailBimbinganProposalMhsActivity" />
+        <action
+            android:id="@+id/action_proposalMahasiswaFragment2_to_seminarMahasiswaActivity"
+            app:destination="@id/seminarMahasiswaActivity" />
+    </fragment>
+    <fragment
+        android:id="@+id/addProposalFragment"
+        android:name="com.example.sitam.ui.proposal.mhs.AddProposalFragment"
+        android:label="fragment_add_proposal"
+        tools:layout="@layout/fragment_add_proposal" >
+        <action
+            android:id="@+id/action_addProposalFragment_to_proposalMahasiswaFragment2"
+            app:destination="@id/proposalMahasiswaFragment2"
+            app:popUpTo="@id/proposalMahasiswaFragment2"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <activity
+        android:id="@+id/detailBimbinganProposalMhsActivity"
+        android:name="com.example.sitam.ui.proposal.mhs.DetailBimbinganProposalMhsActivity"
+        android:label="activity_detail_bimbingan_proposal_mhs"
+        tools:layout="@layout/activity_detail_bimbingan_proposal_mhs" />
+    <activity
+        android:id="@+id/seminarMahasiswaActivity"
+        android:name="com.example.sitam.ui.seminar.mhs.SeminarMahasiswaActivity"
+        android:label="activity_seminar_mahasiswa"
+        tools:layout="@layout/activity_seminar_mahasiswa" />
+</navigation>

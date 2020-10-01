@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.sitam">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <application
+        android:name=".SitamApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true"
+        tools:ignore="LockedOrientationActivity"
+        tools:targetApi="m">
+        <activity android:name=".ui.kolokium.mhs.DetailBimbinganKolokiumMhsActivity"></activity>
+        <activity android:name=".ui.kolokium.mhs.KolokiumMahasiswaActivity" />
+        <activity android:name=".ui.ta.mhs.DetailBimbinganTaMhsActivity" />
+        <activity android:name=".ui.ta.mhs.BimbinganTugasAkhirViewMhsActivity" />
+        <activity android:name=".ui.seminar.mhs.DetailBimbinganSeminarMhsActivity" />
+
+        <service
+            android:name=".service.DownloadSeminarService"
+            android:exported="false" />
+
+        <activity android:name=".ui.seminar.mhs.SeminarMahasiswaActivity" />
+        <activity android:name=".ui.proposal.mhs.DetailBimbinganProposalMhsActivity" />
+        <activity
+            android:name=".ui.auth.LoginActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/SplashScreenTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".MainActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
+
+        <service
+            android:name=".service.DownloadService"
+            android:exported="false" />
+        <service
+            android:name=".service.DownloadServiceTa"
+            android:exported="false" />
+
+        <service
+            android:name=".service.DownloadKolokiumService"
+            android:exported="false" />
+    </application>
+
+</manifest>

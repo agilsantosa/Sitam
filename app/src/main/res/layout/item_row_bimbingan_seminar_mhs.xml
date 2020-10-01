@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="16dp"
+    android:layout_marginEnd="16dp"
+    android:layout_marginBottom="8dp"
+    app:cardCornerRadius="10dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/white"
+            android:padding="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp">
+
+                <TextView
+                    style="@style/MySchool.TextAppearance.Title1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:text="@string/dibuat" />
+
+                <TextView
+                    android:id="@+id/tv_item_create_seminar"
+                    style="@style/MySchool.TextAppearance.Title1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp">
+
+                <TextView
+                    style="@style/MySchool.TextAppearance.Title1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:text="@string/file" />
+
+                <TextView
+                    android:id="@+id/tv_item_filename_seminar"
+                    style="@style/MySchool.TextAppearance.Title1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp">
+
+                <TextView
+                    style="@style/MySchool.TextAppearance.Title1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:text="@string/catatan" />
+
+                <TextView
+                    android:id="@+id/tv_item_catatan_seminar"
+                    style="@style/MySchool.TextAppearance.Title1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp">
+
+                <TextView
+                    style="@style/MySchool.TextAppearance.Title1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:text="@string/status" />
+
+                <TextView
+                    android:id="@+id/tv_item_status_seminar"
+                    style="@style/MySchool.TextAppearance.Title1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+            </TableRow>
+
+        </TableLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

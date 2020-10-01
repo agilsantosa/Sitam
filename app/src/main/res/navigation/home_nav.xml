@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/home_menu_item"
+    app:startDestination="@id/homeMahasiswaFragment2"
+    tools:ignore="UnusedNavigation">
+
+    <fragment
+        android:id="@+id/homeMahasiswaFragment2"
+        android:name="com.example.sitam.ui.home.HomeMahasiswaFragment"
+        android:label="fragment_home_mahasiswa"
+        tools:layout="@layout/fragment_home_mahasiswa" />
+</navigation>

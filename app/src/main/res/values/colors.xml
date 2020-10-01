@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">@color/themeColor</color>
+    <color name="colorPrimaryDark">@color/themeColorDarker</color>
+    <color name="colorAccent">#FC3176</color>
+    <color name="themeColor">#439CBB</color>
+    <color name="blue">#00B0FF</color>
+    <color name="themeColorDarker">#003A4D</color>
+    <color name="themeColorTertiary">#FDE89B</color>
+
+    <color name="bottomNavigationViewItemSelectedColor">@color/themeColorTertiary</color>
+    <color name="bottomNavigationViewItemColor">@color/colorPureWhite</color>
+    <color name="bottomNavigationViewBackground">@color/themeColor</color>
+
+    <color name="toolbarFontColor">@color/colorPureWhite</color>
+
+    <color name="colorPureWhite">#FFFFFF</color>
+    <color name="colorPureBlack">#000000</color>
+    <color name="colorPureBlack50">#80000000</color>
+    <color name="colorPureBlack75">#BF000000</color>
+    <color name="colorGrey">#707070</color>
+    <color name="iconColor">@color/colorPureBlack</color>
+    <color name="iconColorWhite">@color/colorPureWhite</color>
+    <color name="iconColorSecondary">@color/colorPureWhite</color>
+    <color name="colorPinkFuchsia">#FC3176</color>
+
+    <color name="shimmerColorOne">#C9C9C9</color>
+    <color name="shimmerColorTwo">#ACACAC</color>
+</resources>

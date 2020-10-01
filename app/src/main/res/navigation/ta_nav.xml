@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/tugas_akhir_menu_item"
+    app:startDestination="@id/tugasAkhirMahasiswaFragment2"
+    tools:ignore="UnusedNavigation">
+
+    <fragment
+        android:id="@+id/tugasAkhirMahasiswaFragment2"
+        android:name="com.example.sitam.ui.ta.mhs.TugasAkhirMahasiswaFragment"
+        android:label="fragment_tugas_akhir_mahasiswa"
+        tools:layout="@layout/fragment_tugas_akhir_mahasiswa" >
+        <action
+            android:id="@+id/action_tugasAkhirMahasiswaFragment2_to_bimbinganTugasAkhirViewMhsActivity"
+            app:destination="@id/bimbinganTugasAkhirViewMhsActivity" />
+        <action
+            android:id="@+id/action_tugasAkhirMahasiswaFragment2_to_detailBimbinganTaMhsActivity"
+            app:destination="@id/detailBimbinganTaMhsActivity" />
+        <action
+            android:id="@+id/action_tugasAkhirMahasiswaFragment2_to_kolokiumMahasiswaActivity"
+            app:destination="@id/kolokiumMahasiswaActivity" />
+    </fragment>
+    <activity
+        android:id="@+id/bimbinganTugasAkhirViewMhsActivity"
+        android:name="com.example.sitam.ui.ta.mhs.BimbinganTugasAkhirViewMhsActivity"
+        android:label="activity_bimbingan_tugas_akhir_view_mhs"
+        tools:layout="@layout/activity_bimbingan_tugas_akhir_view_mhs" />
+    <activity
+        android:id="@+id/detailBimbinganTaMhsActivity"
+        android:name="com.example.sitam.ui.ta.mhs.DetailBimbinganTaMhsActivity"
+        android:label="activity_detail_bimbingan_ta_mhs"
+        tools:layout="@layout/activity_detail_bimbingan_ta_mhs" />
+    <activity
+        android:id="@+id/kolokiumMahasiswaActivity"
+        android:name="com.example.sitam.ui.kolokium.mhs.KolokiumMahasiswaActivity"
+        android:label="activity_kolokium_mahasiswa"
+        tools:layout="@layout/activity_kolokium_mahasiswa" />
+</navigation>

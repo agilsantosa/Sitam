@@ -1,0 +1,90 @@
+<resources>
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="preferenceTheme">@style/CustomPreferenceTheme</item>
+        <item name="materialButtonStyle">@style/MySchool.MaterialButton</item>
+    </style>
+
+    <style name="MySchool.MaterialButton" parent="Widget.MaterialComponents.Button">
+        <item name="backgroundTint">@color/colorPinkFuchsia</item>
+    </style>
+
+    <style name="MySchool.MaterialButtonSecondary" parent="Widget.MaterialComponents.Button">
+        <item name="backgroundTint">@color/colorGrey</item>
+    </style>
+
+    <style name="SplashScreenTheme" parent="AppTheme">
+        <item name="windowActionBar">false</item>
+        <item name="android:windowBackground">@drawable/splash_screen</item>
+    </style>
+
+    <style name="MySchoolToolbarTheme" parent="ThemeOverlay.MaterialComponents.ActionBar">
+        <item name="android:background">@color/bottomNavigationViewBackground</item>
+        <item name="android:textColor">@color/colorPureWhite</item>
+    </style>
+
+    <style name="PopUpTheme">
+        <item name="android:textColor">@color/colorPureBlack</item>
+    </style>
+
+    <style name="MySchool.TextAppearance.GrandTitle" parent="TextAppearance.AppCompat.Title">
+        <item name="android:fontFamily">@font/avenir_next_medium</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="MySchool.TextAppearance.Title1" parent="TextAppearance.AppCompat.Title">
+        <item name="android:fontFamily">@font/avenir_next_medium</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="MySchool.TabLayoutStyle" parent="TextAppearance.Design.Tab">
+        <item name="android:fontFamily">@font/airbnb_cereal_medium</item>
+    </style>
+
+    <style name="MySchool.TextAppearance.Title2" parent="TextAppearance.AppCompat.Title">
+        <item name="android:fontFamily">@font/avenir_next_medium</item>
+        <item name="android:textSize">13sp</item>
+    </style>
+
+    <style name="MySchool.TextAppearance.SubTitle1" parent="TextAppearance.AppCompat.Widget.ActionBar.Title">
+        <item name="android:fontFamily">@font/avenir_next_medium</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/colorGrey</item>
+    </style>
+
+    <style name="MySchool.TextAppearance.SubTitle2" parent="TextAppearance.AppCompat.Body1">
+        <item name="android:fontFamily">@font/avenir_next_regular</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/colorGrey</item>
+    </style>
+
+    <style name="MySchool.TextAppearance.SubTitle3" parent="TextAppearance.AppCompat.Body1">
+        <item name="android:fontFamily">@font/avenir_next_regular</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/colorGrey</item>
+    </style>
+
+    <style name="CustomPreferenceTheme" parent="@style/PreferenceThemeOverlay.v14.Material">
+        <item name="android:overScrollMode">never</item>
+    </style>
+
+    <style name="CustomFabTheme" parent="Widget.MaterialComponents.FloatingActionButton">
+        <item name="colorSecondary">@color/colorPinkFuchsia</item>
+        <item name="colorOnSecondary">@color/colorPureWhite</item>
+    </style>
+
+    <style name="CustomFabThemeSecondary" parent="Widget.MaterialComponents.FloatingActionButton">
+        <item name="colorSecondary">@color/colorGrey</item>
+        <item name="colorOnSecondary">@color/colorPureWhite</item>
+    </style>
+
+    <style name="CustomTabLayoutTheme" parent="ThemeOverlay.MaterialComponents">
+        <item name="colorPrimary">@color/colorPinkFuchsia</item>
+    </style>
+
+
+</resources>

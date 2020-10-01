@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.seminar.mhs.DetailBimbinganSeminarMhsActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:theme="@style/MySchoolToolbarTheme"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:layout_constraintTop_toTopOf="parent"
+            app:navigationIcon="@drawable/ic_arrow_back">
+
+            <TextView
+                android:id="@+id/activity_classroom_detail_toolbar_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
+                android:text="@string/detail_bimbingan_seminar"
+                android:lines="1"
+                android:ellipsize="end"
+                android:textColor="@color/toolbarFontColor"
+                android:fontFamily="@font/airbnb_cereal_medium" />
+
+        </androidx.appcompat.widget.Toolbar>
+
+        <TableLayout
+            android:id="@+id/tablelayout_detail_bimb_seminar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp">
+
+                <TextView
+                    style="@style/MySchool.TextAppearance.Title1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:text="Dikirim" />
+
+                <TextView
+                    android:id="@+id/tv_detail_bimbingan_seminar_create_mhs"
+                    style="@style/MySchool.TextAppearance.Title1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp">
+
+                <TextView
+                    style="@style/MySchool.TextAppearance.Title1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:text="Nama File" />
+
+                <TextView
+                    android:id="@+id/tv_detail_bimbingan_seminar_file_name_mhs"
+                    style="@style/MySchool.TextAppearance.Title1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp">
+
+                <TextView
+                    style="@style/MySchool.TextAppearance.Title1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:text="@string/catatan" />
+
+                <TextView
+                    android:id="@+id/tv_detail_bimbingan_seminar_catatan_mhs"
+                    style="@style/MySchool.TextAppearance.Title1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp">
+
+                <TextView
+                    style="@style/MySchool.TextAppearance.Title1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:text="@string/status" />
+
+                <TextView
+                    android:id="@+id/tv_detail_bimbingan_seminar_status_mhs"
+                    style="@style/MySchool.TextAppearance.Title1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp">
+
+                <TextView
+                    style="@style/MySchool.TextAppearance.Title1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:text="Catatan Dosen" />
+
+                <TextView
+                    android:id="@+id/tv_detail_bimbingan_seminar_catatan_dosen"
+                    style="@style/MySchool.TextAppearance.Title1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="-"/>
+            </TableRow>
+        </TableLayout>
+
+        <com.facebook.shimmer.ShimmerFrameLayout
+            android:id="@+id/fragment_classroom_feed_shimmer_layout"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/toolbar"
+            app:shimmer_auto_start="false">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <include layout="@layout/shimmer_item_bimbingan_proposal" />
+
+            </LinearLayout>
+
+        </com.facebook.shimmer.ShimmerFrameLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>

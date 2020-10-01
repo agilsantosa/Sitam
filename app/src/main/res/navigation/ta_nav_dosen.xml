@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/tugas_akhir_menu_item"
+    tools:ignore="UnusedNavigation"
+    app:startDestination="@id/tugasAkhirDosenFragment">
+
+    <fragment
+        android:id="@+id/tugasAkhirDosenFragment"
+        android:name="com.example.sitam.ui.ta.dosen.TugasAkhirDosenFragment"
+        android:label="fragment_tugas_akhir_dosen"
+        tools:layout="@layout/fragment_tugas_akhir_dosen" >
+        <action
+            android:id="@+id/action_tugasAkhirDosenFragment_to_listBimbinganTaDosenFragment"
+            app:destination="@id/listBimbinganTaDosenFragment" />
+        <action
+            android:id="@+id/action_tugasAkhirDosenFragment_to_listBimbinganKolokiumViewDosenFragment"
+            app:destination="@id/listBimbinganKolokiumViewDosenFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/listBimbinganTaDosenFragment"
+        android:name="com.example.sitam.ui.ta.dosen.ListBimbinganTaDosenFragment"
+        android:label="fragment_list_bimbingan_ta_dosen"
+        tools:layout="@layout/fragment_list_bimbingan_ta_dosen" >
+        <action
+            android:id="@+id/action_listBimbinganTaDosenFragment_to_detailBimbinganTaDosenFragment"
+            app:destination="@id/detailBimbinganTaDosenFragment" />
+        <action
+            android:id="@+id/action_listBimbinganTaDosenFragment_to_tugasAkhirDosenFragment"
+            app:destination="@id/tugasAkhirDosenFragment"
+            app:popUpTo="@id/tugasAkhirDosenFragment"
+            app:popUpToInclusive="true" />
+        <argument
+            android:name="dataTugasAkhirDosen"
+            app:argType="com.example.sitam.models.ta.DataTugasAkhirDosen"
+            app:nullable="true"
+            android:defaultValue="@null"/>
+    </fragment>
+    <fragment
+        android:id="@+id/detailBimbinganTaDosenFragment"
+        android:name="com.example.sitam.ui.ta.dosen.DetailBimbinganTaDosenFragment"
+        android:label="fragment_detail_bimbingan_ta_dosen"
+        tools:layout="@layout/fragment_detail_bimbingan_ta_dosen" >
+        <action
+            android:id="@+id/action_detailBimbinganTaDosenFragment_to_listBimbinganTaDosenFragment"
+            app:destination="@id/listBimbinganTaDosenFragment"
+            app:popUpTo="@id/listBimbinganTaDosenFragment"
+            app:popUpToInclusive="true" />
+        <argument
+            android:name="dataListBimbingan"
+            app:argType="com.example.sitam.models.ta.DataListBimbinganTaMhs" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailBimbinganKolokiumViewDosenFragment"
+        android:name="com.example.sitam.ui.kolokium.dosen.DetailBimbinganKolokiumViewDosenFragment"
+        android:label="fragment_detail_bimbingan_kolokium_view_dosen"
+        tools:layout="@layout/fragment_detail_bimbingan_kolokium_view_dosen" >
+        <action
+            android:id="@+id/action_detailBimbinganKolokiumViewDosenFragment_to_listBimbinganKolokiumViewDosenFragment"
+            app:destination="@id/listBimbinganKolokiumViewDosenFragment"
+            app:popUpTo="@id/listBimbinganKolokiumViewDosenFragment"
+            app:popUpToInclusive="true" />
+        <argument
+            android:name="dataListBimbingan"
+            app:argType="com.example.sitam.models.kolokium.DataListBimbinganKolokiumDosen" />
+    </fragment>
+    <fragment
+        android:id="@+id/listBimbinganKolokiumViewDosenFragment"
+        android:name="com.example.sitam.ui.kolokium.dosen.ListBimbinganKolokiumViewDosenFragment"
+        android:label="fragment_list_bimbingan_kolokium_view_dosen"
+        tools:layout="@layout/fragment_list_bimbingan_kolokium_view_dosen" >
+        <action
+            android:id="@+id/action_listBimbinganKolokiumViewDosenFragment_to_detailBimbinganKolokiumViewDosenFragment"
+            app:destination="@id/detailBimbinganKolokiumViewDosenFragment" />
+        <action
+            android:id="@+id/action_listBimbinganKolokiumViewDosenFragment_to_tugasAkhirDosenFragment"
+            app:destination="@id/tugasAkhirDosenFragment"
+            app:popUpTo="@id/tugasAkhirDosenFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+</navigation>

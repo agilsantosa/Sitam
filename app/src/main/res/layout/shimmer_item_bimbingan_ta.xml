@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="16dp"
+    android:layout_marginEnd="16dp"
+    android:layout_marginTop="8dp"
+    android:layout_marginBottom="8dp"
+    app:cardCornerRadius="8dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/classroom_detail_feed_item_name_layout_shimmer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.makeramen.roundedimageview.RoundedImageView
+                android:id="@+id/classroom_detail_feed_item_publisher_name_shimmer"
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:scaleType="centerCrop"
+                android:src="@color/shimmerColorTwo"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:riv_corner_radius="8dp" />
+
+            <com.makeramen.roundedimageview.RoundedImageView
+                android:id="@+id/classroom_detail_feed_item_publish_date_shimmer"
+                android:layout_width="128dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="4dp"
+                android:scaleType="centerCrop"
+                android:src="@color/shimmerColorOne"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/classroom_detail_feed_item_publisher_name_shimmer"
+                app:riv_corner_radius="8dp" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:id="@+id/classroom_detail_feed_item_content_body_shimmer"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:layout_marginTop="4dp"
+            android:scaleType="centerCrop"
+            android:src="@color/shimmerColorOne"
+            app:layout_constraintEnd_toEndOf="@id/classroom_detail_feed_item_name_layout_shimmer"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/classroom_detail_feed_item_name_layout_shimmer"
+            app:riv_corner_radius="8dp" />
+
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:id="@+id/classroom_detail_feed_item_content_body_two_shimmer"
+            android:layout_width="256dp"
+            android:layout_height="20dp"
+            android:layout_marginTop="4dp"
+            android:scaleType="centerCrop"
+            android:src="@color/shimmerColorOne"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/classroom_detail_feed_item_content_body_shimmer"
+            app:riv_corner_radius="8dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>
