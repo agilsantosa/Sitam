@@ -1,5 +1,6 @@
 package com.example.sitam.ui.ta.mhs
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -10,8 +11,10 @@ import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
+import com.example.sitam.MainActivity
 import com.example.sitam.R
 import com.example.sitam.databinding.FragmentTugasAkhirMahasiswaBinding
+import com.example.sitam.ui.kolokium.mhs.KolokiumMahasiswaActivity
 import com.example.sitam.ui.kolokium.mhs.RegisterKolokiumDialogFragment
 import com.example.sitam.ui.kolokium.mhs.viewmodel.KolokiumMhsViewModel
 import com.example.sitam.ui.ta.mhs.viewmodel.TugasAkhirMahasiswaViewModel
@@ -27,7 +30,7 @@ class TugasAkhirMahasiswaFragment : Fragment() {
     private val kolokiumMhsViewModel: KolokiumMhsViewModel by activityViewModels()
     private lateinit var token: String
     private lateinit var identifier: String
-    private var idKolokium: String = "-"
+    private lateinit var idKolokium: String
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -68,9 +71,11 @@ class TugasAkhirMahasiswaFragment : Fragment() {
             }
         }
 
+
         binding.fabKolokium.setOnClickListener {
+            idKolokium = preferenceProvider.getIdKolokium(Constants.KEY_ID_KOLOKIUM) ?: "-"
             when{
-                idKolokium == "-" -> {
+                idKolokium.equals("-") -> {
                     Log.i("TAG", "onViewCreated: idKOlokium $idKolokium")
                     val mRegisterKolokiumDialogFragment = RegisterKolokiumDialogFragment()
                     val mFragmentManager = childFragmentManager
@@ -87,7 +92,8 @@ class TugasAkhirMahasiswaFragment : Fragment() {
 //                    ).show()
 //                }
                 else -> {
-                    findNavController().navigate(R.id.action_tugasAkhirMahasiswaFragment2_to_kolokiumMahasiswaActivity)
+                    val intent = Intent(context, KolokiumMahasiswaActivity::class.java)
+                    startActivity(intent)
                 }
             }
         }
@@ -100,11 +106,17 @@ class TugasAkhirMahasiswaFragment : Fragment() {
                     hideProgressBar()
                     response.data?.let {
                         val data = it.data
+
                         when (it.message) {
-                            "Kolokium available!" -> {
+                            "Kolokium availabel!" -> {
                                 binding.cardViewTaMhs.visibility = View.VISIBLE
-                                idKolokium = data.id.toString()
-                                preferenceProvider.saveIdKolokium(Constants.KEY_ID_KOLOKIUM, idKolokium)
+                                binding.fabKolokium.visibility = View.VISIBLE
+                                binding.fabDetailTa.visibility = View.VISIBLE
+                                preferenceProvider.saveIdKolokium(Constants.KEY_ID_KOLOKIUM, data.id.toString())
+
+                                binding.tvPenguji1.text = data.penguji1 ?: "-"
+                                binding.tvPenguji2.text = data.penguji2 ?: "-"
+                                binding.tvNilaiTa.text = data.total_nilai ?: "-"
                             }
                         }
                     }
@@ -139,26 +151,20 @@ class TugasAkhirMahasiswaFragment : Fragment() {
                             "Ta availabel!" -> {
                                 hideEmpty()
                                 binding.cardViewTaMhs.visibility = View.VISIBLE
-                                preferenceProvider.saveIdTa(
-                                    Constants.KEY_ID_TA,
-                                    data.id.toString()
-                                )
+                                preferenceProvider.saveIdTa(Constants.KEY_ID_TA, data.id.toString())
+                                preferenceProvider.saveIdProposal(Constants.KEY_ID_PROPOSAL, data.id_proposal.toString())
 
                                 val nilai = data.nilai ?: 0
                                 val pembimbing1 = data.pembimbing1 ?: "-"
                                 val pembimbing2 = data.pembimbing2 ?: "-"
-                                val penguji1 = data.penguji1 ?: "-"
-                                val penguji2 = data.penguji1 ?: "-"
+
 
                                 binding.tvKonsentrasiTa.text = data.konsentrasi
                                 binding.tvTopikTa.text = data.topik_tugas_akhir
                                 binding.tvTahunPengajuanTa.text = data.tahun_pengajuan.toString()
                                 binding.tvStatusTa.text = data.status
-                                binding.tvNilaiTa.text = nilai.toString()
                                 binding.tvPembimbing1.text = pembimbing1
                                 binding.tvPembimbing2.text = pembimbing2
-                                binding.tvPenguji1.text = penguji1
-                                binding.tvPenguji2.text = penguji2
                             }
                         }
 

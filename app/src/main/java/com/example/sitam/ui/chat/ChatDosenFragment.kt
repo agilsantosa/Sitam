@@ -52,6 +52,33 @@ class ChatDosenFragment : Fragment() {
 
         setupRecyclerView()
 
+        binding.btnKirimPesan.setOnClickListener {
+            val npm = binding.tiPenerima.editText?.text.toString()
+            val pesan = binding.tiIsiPesan.editText?.text.toString()
+
+            chatViewModel.sendPesanDosen(token, identifier, npm, pesan)
+        }
+
+        chatViewModel.sendChatDosen.observe(viewLifecycleOwner, { response ->
+            when (response) {
+                is Resource.Succes -> {
+                    binding.progresBarChatDosen.visibility = View.GONE
+                    response.data?.let {
+                        showToast(it.message)
+                    }
+                }
+                is Resource.Error -> {
+                    binding.progresBarChatDosen.visibility = View.GONE
+                    response.data?.let {
+                        showToast(it.message)
+                    }
+                }
+                is Resource.Loading -> {
+                    binding.progresBarChatDosen.visibility = View.VISIBLE
+                }
+            }
+        })
+
         chatViewModel.pesanDosen.observe(viewLifecycleOwner, Observer { response ->
             when (response) {
                 is Resource.Succes -> {

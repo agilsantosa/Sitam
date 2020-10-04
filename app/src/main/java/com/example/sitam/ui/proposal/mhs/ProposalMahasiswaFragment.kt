@@ -1,5 +1,6 @@
 package com.example.sitam.ui.proposal.mhs
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -21,6 +22,7 @@ import com.example.sitam.ui.seminar.mhs.viewmodel.SeminarMhsViewModel
 import com.example.sitam.utils.Constants
 import com.example.sitam.utils.Resource
 import com.example.sitam.utils.SharedPreferenceProvider
+import kotlinx.android.synthetic.main.fragment_login.*
 
 class ProposalMahasiswaFragment : Fragment() {
 
@@ -59,9 +61,6 @@ class ProposalMahasiswaFragment : Fragment() {
         val level = preferenceProvider.getLevelUser(Constants.KEY_LEVEL_USER)
 
         proposalViewModel = (activity as MainActivity).proposalViewModel
-//        proposalViewModel = ViewModelProvider(this).get(ProposalViewModel::class.java)
-        proposalViewModel.getProposalMhs(token, identifier)
-        seminarMhsViewModel.getDataSeminar(token, identifier)
 
         return binding.root
     }
@@ -69,6 +68,9 @@ class ProposalMahasiswaFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         Log.i("TAG", "onViewCreated: dipanggil")
         super.onViewCreated(view, savedInstanceState)
+
+        proposalViewModel.getProposalMhs(token, identifier)
+        seminarMhsViewModel.getDataSeminar(token, identifier)
 
         observeView()
         observeSeminar()
@@ -94,7 +96,7 @@ class ProposalMahasiswaFragment : Fragment() {
                         RegisterSeminarMhsDialogFragment::class.java.simpleName
                     )
                 }
-                binding.tvPenguji.text.isNullOrEmpty() -> {
+                binding.tvPenguji.text == "-" -> {
                     Toast.makeText(
                         context,
                         "Mohon menunggu... Tanggal sidang belum ditentukan",
@@ -110,7 +112,7 @@ class ProposalMahasiswaFragment : Fragment() {
         }
 
         binding.fabDetailProposal.setOnClickListener {
-            if (binding.tvPembimbing.text.isNullOrEmpty()) {
+            if (binding.tvPembimbing.text == "-") {
                 Toast.makeText(
                     context,
                     "Mohon menunggu... Pembimbing belum ditentukan",
@@ -123,15 +125,19 @@ class ProposalMahasiswaFragment : Fragment() {
     }
 
     private fun observeSeminar() {
-        Log.i("TAG", "observeSeminar: dipanggil")
         seminarMhsViewModel.requestDataSeminar.observe(viewLifecycleOwner, { response ->
             when (response) {
                 is Resource.Succes -> {
                     hideProgressBar()
                     response.data?.let {
-                        val data = it.data
-                        idSeminar = data.id.toString()
-                        preferenceProvider.saveIdSeminar(Constants.KEY_ID_SEMINAR, idSeminar)
+                        Log.i("TAG", "observeSeminar: dipanggil")
+                        when(it.message){
+                            "Seminar availabel!" -> {
+                                val data = it.data
+                                idSeminar = data.id.toString()
+                                preferenceProvider.saveIdSeminar(Constants.KEY_ID_SEMINAR, idSeminar)
+                            }
+                        }
                     }
                 }
                 is Resource.Error -> {
@@ -147,35 +153,45 @@ class ProposalMahasiswaFragment : Fragment() {
         })
     }
 
+    @SuppressLint("SetTextI18n")
     private fun observeView() {
         proposalViewModel.proposalMahasiswa.observe(viewLifecycleOwner, { response ->
             when (response) {
                 is Resource.Succes -> {
-                    Log.i("TAG", "observeView sukses: dipanggil")
                     hideProgressBar()
-                    handleFab(true)
-                    binding.cardViewProposalMhs.visibility = View.VISIBLE
                     response.data?.let {
-                        val data = it.data
-                        preferenceProvider.saveIdProposal(
-                            Constants.KEY_ID_PROPOSAL,
-                            data.id.toString()
-                        )
-                        binding.tvTopikProposal.text = data.topik
-                        binding.tvKonsentrasi.text = data.konsentrasi
-                        binding.tvTahunPengajuan.text = data.tahun_pengajuan.toString()
-                        binding.tvPembimbing.text = data.pembimbing
-                        binding.tvStatusProposal.text = data.status
-                        binding.tvPenguji.text = data.penguji
-                        binding.tvNilai.text = data.nilai.toString()
-                        binding.tvJudulProposal.text = data.judul_proposal
+                        Log.i("TAG", "observeView: ${it.message}")
+                        when (it.message) {
+                            "Proposal availabel!" -> {
+                                binding.cardViewProposalMhs.visibility = View.VISIBLE
+                                handleFab(true)
+                                val data = it.data
+                                preferenceProvider.saveIdProposal(
+                                    Constants.KEY_ID_PROPOSAL,
+                                    data.id.toString()
+                                )
+                                binding.tvTopikProposal.text = data.topik
+                                binding.tvKonsentrasi.text = data.konsentrasi
+                                binding.tvTahunPengajuan.text = data.tahun_pengajuan.toString()
+                                binding.tvPembimbing.text = data.pembimbing ?: "-"
+                                val status: String = data.status
+                                if (status == "-"){
+                                    binding.tvStatusProposal.text = "Menunggu Konfirmasi"
+                                }else{
+                                    binding.tvStatusProposal.text = data.status
+                                }
+                                binding.tvPenguji.text = data.penguji ?: "-"
+                                binding.tvNilai.text = data.nilai.toString()
+                                binding.tvJudulProposal.text = data.judul_proposal
+                            }
+                            else -> showToast(it.message)
+                        }
                     }
                 }
                 is Resource.Error -> {
                     hideProgressBar()
-                    response.message?.let { message ->
-                        Log.i("TAG", "observeView gagal: dipanggil")
-
+                    response.message?.let {message ->
+                        Log.i("TAG", "observeView gagal: $message")
                         when (message) {
                             "Not Found" -> handleFab(false)
                             else -> binding.fabProposal.hide()
@@ -191,7 +207,6 @@ class ProposalMahasiswaFragment : Fragment() {
 
     private fun showProgressBar() {
         binding.progressBarProposal.visibility = View.VISIBLE
-//        binding.cardViewProposalMhs.visibility = View.GONE
         binding.fabProposal.hide()
     }
 

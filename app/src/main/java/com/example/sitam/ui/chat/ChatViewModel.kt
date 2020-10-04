@@ -10,7 +10,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.sitam.SitamApplication
 import com.example.sitam.models.pesan.ResponseChat
-import com.example.sitam.models.profile.ResponseProfileMhs
+import com.example.sitam.models.pesan.ResponseSendChatDosen
 import com.example.sitam.repository.SitamRepository
 import com.example.sitam.utils.Resource
 import kotlinx.coroutines.launch
@@ -23,6 +23,7 @@ class ChatViewModel(
     val pesanMahasiswa: MutableLiveData<Resource<ResponseChat>> = MutableLiveData()
 
     val pesanDosen: MutableLiveData<Resource<ResponseChat>> = MutableLiveData()
+    val sendChatDosen: MutableLiveData<Resource<ResponseSendChatDosen>> = MutableLiveData()
     private val sitamRepository = SitamRepository()
 
 //    init {
@@ -38,6 +39,10 @@ class ChatViewModel(
 
     fun getPesanDosen(token: String, identifier: String) = viewModelScope.launch {
         safeCallGetPesanDosen(token, identifier)
+    }
+
+    fun sendPesanDosen(token: String, identifier: String, to: String, pesan: String) = viewModelScope.launch {
+        safeCallSendPesan(token, identifier, to, pesan)
     }
 
     private fun handlePesanMhsResponse(response: Response<ResponseChat>): Resource<ResponseChat>? {
@@ -56,6 +61,32 @@ class ChatViewModel(
             }
         }
         return Resource.Error(response.message())
+    }
+
+    private fun handleSendChatDsnResponse(response: Response<ResponseSendChatDosen>): Resource<ResponseSendChatDosen>? {
+        if (response.isSuccessful) {
+            response.body()?.let {
+                return Resource.Succes(response.message(), it)
+            }
+        }
+        return Resource.Error(response.message())
+    }
+
+    private suspend fun safeCallSendPesan(token: String, identifier: String, to: String, pesan: String) {
+        sendChatDosen.postValue(Resource.Loading())
+        try {
+            if (hasInternectConnection()) {
+                val response = sitamRepository.sendChatDosenRequest(token, identifier, to, pesan)
+                sendChatDosen.postValue(handleSendChatDsnResponse(response))
+            } else {
+                sendChatDosen.postValue(Resource.Error("No Internet Connection"))
+            }
+        } catch (t: Throwable) {
+            when (t) {
+                is IOException -> sendChatDosen.postValue(Resource.Error("Network Failure"))
+                else -> sendChatDosen.postValue(Resource.Error("Conversion Error"))
+            }
+        }
     }
 
     private suspend fun safeCallGetPesan(token: String, identifier: String) {

@@ -23,9 +23,9 @@ class DownloadSeminarService : IntentService("DownloadSeminarService") {
         Log.d(TAG, "Download Service dijalankan")
         if (intent != null) {
             try {
-                val filename = intent.getStringExtra("filename")
+                val filename = intent.getStringExtra("filename_seminar")
                 val request = DownloadManager.Request(
-                    Uri.parse(BuildConfig.URL_BASE + "/proposal/" + filename)
+                    Uri.parse(BuildConfig.URL_BASE + "/proposal/$filename")
                 )
                     .setTitle("Downloading $filename")
                     .setDescription("The File Is Downloading...")

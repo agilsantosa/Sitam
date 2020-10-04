@@ -3,6 +3,7 @@ package com.example.sitam.api
 import com.example.sitam.models.auth.ResponseAuth
 import com.example.sitam.models.kolokium.*
 import com.example.sitam.models.pesan.ResponseChat
+import com.example.sitam.models.pesan.ResponseSendChatDosen
 import com.example.sitam.models.profile.ResponseProfileDosen
 import com.example.sitam.models.profile.ResponseProfileMhs
 import com.example.sitam.models.proposal.ResponseBimbinganProposal
@@ -83,6 +84,19 @@ interface SitamAPI {
         @Field("identifier")
         identifier: String
     ): Response<ResponseChat>
+
+    @FormUrlEncoded
+    @POST("/api/dosen/pesan/send")
+    suspend fun sendPesanDosen(
+        @Field("token")
+        token: String,
+        @Field("identifier")
+        identifier: String,
+        @Field("to")
+        to: String,
+        @Field("pesan")
+        pesan: String,
+    ): Response<ResponseSendChatDosen>
 
     //getProposal
     @FormUrlEncoded
@@ -390,4 +404,15 @@ interface SitamAPI {
         @Field("nilai")
         nilai: String?
     ): Response<ResponseSeminarReply>
+
+//
+
+    @FormUrlEncoded
+    @POST("/api/mahasiswa/kolokium/bimbingan/view")
+    suspend fun replyBimbinganKolokiumMhs(
+        @Field("token")
+        token: String,
+        @Field("id")
+        idBimbingan: String
+    ): Response<ResponseReplyBimbinganKolokiumMhs>
 }

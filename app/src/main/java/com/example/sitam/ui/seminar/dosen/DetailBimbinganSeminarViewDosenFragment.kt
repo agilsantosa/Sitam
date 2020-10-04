@@ -43,7 +43,7 @@ class DetailBimbinganSeminarViewDosenFragment : Fragment() {
     private val detailBimbinganSeminarViewModel: DetailBimbinganSeminarViewModel by viewModels()
 
     companion object {
-        const val ACTION_DOWNLOAD_STATUS = "download_status"
+        const val ACTION_DOWNLOAD_STATUS = "download_status_seminar"
         private const val SMS_REQUEST_CODE = 101
     }
 
@@ -59,6 +59,16 @@ class DetailBimbinganSeminarViewDosenFragment : Fragment() {
             false
         )
 
+        downloadReceiver = object : BroadcastReceiver() {
+            override fun onReceive(context: Context, intent: Intent) {
+                Log.d(DownloadSeminarService.TAG, "Download Selesai")
+                Toast.makeText(context, "Download Selesai", Toast.LENGTH_SHORT).show()
+            }
+        }
+        val downloadIntentFilter = IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE)
+//        registerReceiver(downloadReceiver, downloadIntentFilter)
+        activity?.registerReceiver(downloadReceiver, downloadIntentFilter)
+
         return binding.root
     }
 
@@ -72,16 +82,6 @@ class DetailBimbinganSeminarViewDosenFragment : Fragment() {
 
         binding.tvCreateDetailBimbingan.text = data.created_at
         binding.tvCatatanMhs.text = data.catatan
-
-        downloadReceiver = object : BroadcastReceiver() {
-            override fun onReceive(context: Context, intent: Intent) {
-                Log.d(DownloadSeminarService.TAG, "Download Selesai")
-                Toast.makeText(context, "Download Selesai", Toast.LENGTH_SHORT).show()
-            }
-        }
-        val downloadIntentFilter = IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE)
-//        registerReceiver(downloadReceiver, downloadIntentFilter)
-        requireActivity().registerReceiver(downloadReceiver, downloadIntentFilter)
 
         val items = arrayOf(
             "Approved",
@@ -123,8 +123,8 @@ class DetailBimbinganSeminarViewDosenFragment : Fragment() {
             } else {
                 val downloadSeminarServiceIntent =
                     Intent(context, DownloadSeminarService::class.java)
-                downloadSeminarServiceIntent.putExtra("filename", data.file_revisi)
-                downloadSeminarServiceIntent.putExtra("flowSeminar", "seminar")
+                downloadSeminarServiceIntent.putExtra("filename_seminar", data.file_revisi)
+//                downloadSeminarServiceIntent.putExtra("flowSeminar", "seminar")
                 requireActivity().startService(downloadSeminarServiceIntent)
             }
         }
@@ -267,7 +267,7 @@ class DetailBimbinganSeminarViewDosenFragment : Fragment() {
 
     override fun onDestroy() {
         super.onDestroy()
-        requireActivity().unregisterReceiver(downloadReceiver)
+        activity?.unregisterReceiver(downloadReceiver)
     }
 
     override fun onRequestPermissionsResult(

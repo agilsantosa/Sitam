@@ -37,6 +37,9 @@ class SitamRepository() {
     suspend fun chatDosenRequest(token: String, identifier: String) =
         RetrofitInstance.api.getPesanDosen(token, identifier)
 
+    suspend fun sendChatDosenRequest(token: String, identifier: String, to: String, pesan: String) =
+        RetrofitInstance.api.sendPesanDosen(token, identifier, to, pesan)
+
     //proposal mahasiswa
     suspend fun proposalMhsRequest(token: String, identifier: String) =
         RetrofitInstance.api.getProposalMhs(token, identifier)
@@ -185,4 +188,10 @@ class SitamRepository() {
         catatan,
         nilai
     )
+
+    suspend fun replyBimbinganKolokiumMhs(
+        token: String,
+        idBimbingan: String
+    ) = RetrofitInstance.api.replyBimbinganKolokiumMhs(
+        token, idBimbingan)
 }

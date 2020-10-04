@@ -45,7 +45,7 @@ class DetailBimbinganProposalDosenFragment : Fragment() {
     private lateinit var preferenceProvider: SharedPreferenceProvider
 
     companion object {
-        const val ACTION_DOWNLOAD_STATUS = "download_status"
+        const val ACTION_DOWNLOAD_STATUS = "download_status_proposal"
         private const val SMS_REQUEST_CODE = 101
     }
 
@@ -60,6 +60,15 @@ class DetailBimbinganProposalDosenFragment : Fragment() {
             container,
             false
         )
+        downloadReceiver = object : BroadcastReceiver() {
+            override fun onReceive(context: Context, intent: Intent) {
+                Log.d(DownloadService.TAG, "Download Selesai")
+                Toast.makeText(context, "Download Selesai", Toast.LENGTH_SHORT).show()
+            }
+        }
+        val downloadIntentFilter = IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE)
+        activity?.registerReceiver(downloadReceiver, downloadIntentFilter)
+
         return binding.root
     }
 
@@ -75,16 +84,6 @@ class DetailBimbinganProposalDosenFragment : Fragment() {
 
         binding.tvCreateDetailBimbingan.text = dataProposal.created_at
         binding.tvCatatanMhs.text = dataProposal.catatan
-
-        downloadReceiver = object : BroadcastReceiver() {
-            override fun onReceive(context: Context, intent: Intent) {
-                Log.d(DownloadService.TAG, "Download Selesai")
-                Toast.makeText(context, "Download Selesai", Toast.LENGTH_SHORT).show()
-            }
-        }
-        val downloadIntentFilter = IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE)
-//        registerReceiver(downloadReceiver, downloadIntentFilter)
-        requireActivity().registerReceiver(downloadReceiver, downloadIntentFilter)
 
         binding.btnUnduhFile.setOnClickListener {
             if (dataProposal.file_revisi.isNullOrEmpty()) {
@@ -235,7 +234,7 @@ class DetailBimbinganProposalDosenFragment : Fragment() {
 
     override fun onDestroy() {
         super.onDestroy()
-        requireActivity().unregisterReceiver(downloadReceiver)
+        activity?.unregisterReceiver(downloadReceiver)
     }
 
     override fun onRequestPermissionsResult(

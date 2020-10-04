@@ -80,6 +80,7 @@
     <string name="detail_bimbingan_kolokium">Detail Bimbingan Kolokium</string>
     <string name="list_bimbingan_kolokium">List Bimbingan Kolokium</string>
     <string name="tidak_ada_pesan">Tidak ada pesan</string>
+    <string name="kirim">Kirim</string>
     <string-array name="konsentrasi_array">
         <item>Data Science</item>
         <item>Networking</item>
