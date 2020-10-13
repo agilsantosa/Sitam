@@ -14,7 +14,7 @@ android {
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
-        buildConfigField("String", "URL_BASE", '"http://192.168.43.226:8000"')
+        buildConfigField("String", "URL_BASE", '"https://blog.chimemoo.xyz"')
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 

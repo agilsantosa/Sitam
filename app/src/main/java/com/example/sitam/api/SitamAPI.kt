@@ -21,7 +21,7 @@ interface SitamAPI {
 
     //authentication
     @FormUrlEncoded
-    @POST("api/login/")
+    @POST("/api/login")
     suspend fun loginRequest(
         @Field("identifier")
         npm: String,
@@ -30,7 +30,7 @@ interface SitamAPI {
     ): Response<ResponseAuth>
 
     @FormUrlEncoded
-    @POST("api/register/")
+    @POST("/api/register")
     suspend fun registerRequest(
         @Field("npm")
         npm: String,
