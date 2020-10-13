@@ -8,7 +8,7 @@ data class DataProfileMhs(
     val alamat: String,
     val batas_studi: Int,
     val created_at: String,
-    val ipk: Int,
+    val ipk: Float,
     val kelayakan_ta: String,
     val nama: String,
     val no_telp: String,
