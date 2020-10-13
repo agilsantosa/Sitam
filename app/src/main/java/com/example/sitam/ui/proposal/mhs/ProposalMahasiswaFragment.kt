@@ -136,6 +136,10 @@ class ProposalMahasiswaFragment : Fragment() {
                                 val data = it.data
                                 idSeminar = data.id.toString()
                                 preferenceProvider.saveIdSeminar(Constants.KEY_ID_SEMINAR, idSeminar)
+                                if(data.approval == "Terdaftar Seminar [Disetujui]") {
+                                    binding.tableRowWaktuSeminar.visibility = View.VISIBLE
+                                    binding.tvWaktuSeminar.text = data.tanggal_sidang
+                                }
                             }
                         }
                     }

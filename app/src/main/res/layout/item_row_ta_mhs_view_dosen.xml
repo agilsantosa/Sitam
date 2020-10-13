@@ -5,6 +5,7 @@
     android:layout_height="wrap_content"
     android:layout_marginStart="16dp"
     android:layout_marginEnd="16dp"
+    android:layout_marginTop="8dp"
     android:layout_marginBottom="8dp"
     app:cardCornerRadius="10dp">
 
@@ -33,7 +34,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="8dp"
-                    android:text="@string/npm" />
+                    android:text="@string/npm"
+                    android:textStyle="bold"/>
 
                 <TextView
                     android:id="@+id/tv_item_npm_ta_dosen"
@@ -53,13 +55,15 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="8dp"
-                    android:text="@string/topik_proposal" />
+                    android:text="@string/topik_proposal"
+                    android:textStyle="bold"/>
 
                 <TextView
                     android:id="@+id/tv_item_topik_ta_dosen"
                     style="@style/MySchool.TextAppearance.Title1"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"/>
 
             </TableRow>
 
@@ -73,13 +77,15 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="8dp"
-                    android:text="@string/konsentrasi" />
+                    android:text="@string/konsentrasi"
+                    android:textStyle="bold"/>
 
                 <TextView
                     android:id="@+id/tv_item_konsentrasi_ta_dosen"
                     style="@style/MySchool.TextAppearance.Title1"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"/>
 
             </TableRow>
 
@@ -93,7 +99,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="8dp"
-                    android:text="@string/tahun_pengajuan" />
+                    android:text="@string/tahun_pengajuan"
+                    android:textStyle="bold"/>
 
                 <TextView
                     android:id="@+id/tv_item_thn_pengajuan_ta_dosen"
@@ -113,13 +120,15 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="8dp"
-                    android:text="@string/status" />
+                    android:text="@string/status"
+                    android:textStyle="bold"/>
 
                 <TextView
                     android:id="@+id/tv_item_status_ta_dosen"
                     style="@style/MySchool.TextAppearance.Title1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
                     android:text="@string/strip" />
 
             </TableRow>
@@ -133,7 +142,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="8dp"
-                    android:text="@string/anda_sebagai" />
+                    android:text="@string/anda_sebagai"
+                    android:textStyle="bold"/>
 
                 <TextView
                     android:id="@+id/tv_item_anda_sbg_dosen"

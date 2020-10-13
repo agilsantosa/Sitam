@@ -19,18 +19,19 @@
         android:usesCleartextTraffic="true"
         tools:ignore="LockedOrientationActivity"
         tools:targetApi="m">
-        <activity android:name=".ui.kolokium.mhs.DetailBimbinganKolokiumMhsActivity"></activity>
-        <activity android:name=".ui.kolokium.mhs.KolokiumMahasiswaActivity" />
-        <activity android:name=".ui.ta.mhs.DetailBimbinganTaMhsActivity" />
-        <activity android:name=".ui.ta.mhs.BimbinganTugasAkhirViewMhsActivity" />
-        <activity android:name=".ui.seminar.mhs.DetailBimbinganSeminarMhsActivity" />
+        <activity android:name=".ui.kolokium.mhs.DetailBimbinganKolokiumMhsActivity" android:windowSoftInputMode="adjustResize"></activity>
+        <activity android:name=".ui.kolokium.mhs.KolokiumMahasiswaActivity" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name=".ui.ta.mhs.DetailBimbinganTaMhsActivity" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name=".ui.ta.mhs.BimbinganTugasAkhirViewMhsActivity" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name=".ui.seminar.mhs.DetailBimbinganSeminarMhsActivity" android:windowSoftInputMode="adjustResize"/>
 
 
-        <activity android:name=".ui.seminar.mhs.SeminarMahasiswaActivity" />
-        <activity android:name=".ui.proposal.mhs.DetailBimbinganProposalMhsActivity" />
+        <activity android:name=".ui.seminar.mhs.SeminarMahasiswaActivity" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name=".ui.proposal.mhs.DetailBimbinganProposalMhsActivity" android:windowSoftInputMode="adjustResize"/>
         <activity
             android:name=".ui.auth.LoginActivity"
             android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize"
             android:theme="@style/SplashScreenTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -41,7 +42,7 @@
         <activity
             android:name=".MainActivity"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustPan" />
+            android:windowSoftInputMode="stateHidden|adjustPan" />
 
         <meta-data
             android:name="preloaded_fonts"
