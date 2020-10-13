@@ -7,7 +7,7 @@ data class DataReplyBimbinganKolokiumMhs(
     val file_revisi: String,
     val id: Int,
     val id_kolokium: Int,
-    val reply_to: Any,
+    val reply_to: String,
     val status: String,
     val to: String,
     val updated_at: String
