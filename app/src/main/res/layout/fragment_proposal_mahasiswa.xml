@@ -63,6 +63,7 @@
 
                     <TextView
                         android:id="@+id/tv_topik_proposal"
+                        android:layout_weight="1"
                         style="@style/MySchool.TextAppearance.Title1"
                         android:layout_marginStart="10dp" />
                 </TableRow>
@@ -80,6 +81,7 @@
 
                     <TextView
                         android:id="@+id/tv_konsentrasi"
+                        android:layout_weight="1"
                         style="@style/MySchool.TextAppearance.Title1"
                         android:layout_marginStart="10dp" />
                 </TableRow>
@@ -114,6 +116,7 @@
 
                     <TextView
                         android:id="@+id/tv_pembimbing"
+                        android:layout_weight="1"
                         style="@style/MySchool.TextAppearance.Title1"
                         android:layout_marginStart="10dp"
                         tools:text="-"/>
@@ -133,6 +136,7 @@
                     <TextView
                         android:id="@+id/tv_status_proposal"
                         style="@style/MySchool.TextAppearance.Title1"
+                        android:layout_weight="1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"/>
@@ -175,7 +179,7 @@
 
                 <TableRow
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="match_parent">
 
                     <TextView
                         android:id="@+id/lbl_judul_prop"
@@ -186,9 +190,31 @@
                     <TextView
                         android:id="@+id/tv_judul_proposal"
                         style="@style/MySchool.TextAppearance.Title1"
+                        android:layout_weight="1"
                         android:layout_marginStart="10dp" />
                 </TableRow>
             </TableLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView_seminar_mhs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="8dp"
+            android:visibility="gone"
+            app:cardBackgroundColor="#F0F0F0"
+            app:cardCornerRadius="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cardView_proposal_mhs">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="test"/>
         </androidx.cardview.widget.CardView>
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton

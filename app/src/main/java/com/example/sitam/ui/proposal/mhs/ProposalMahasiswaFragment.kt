@@ -173,7 +173,7 @@ class ProposalMahasiswaFragment : Fragment() {
                                 binding.tvTopikProposal.text = data.topik
                                 binding.tvKonsentrasi.text = data.konsentrasi
                                 binding.tvTahunPengajuan.text = data.tahun_pengajuan.toString()
-                                binding.tvPembimbing.text = data.pembimbing ?: "-"
+                                binding.tvPembimbing.text = data.pembimbing.nama ?: "-"
                                 val status: String = data.status
                                 if (status == "-"){
                                     binding.tvStatusProposal.text = "Menunggu Konfirmasi"
