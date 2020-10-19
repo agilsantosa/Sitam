@@ -11,7 +11,7 @@ data class DataProposal(
     val konsentrasi: String,
     val mahasiswa: String,
     val nilai: Float,
-    val pembimbing: DataPembimbingProposal,
+    val pembimbing: String,
     val penguji: String,
     val seminar: Int,
     val status: String,
