@@ -54,19 +54,26 @@ class LoginFragment : Fragment() {
                 is Resource.Succes -> {
                     setViewOnLoading(false)
                     response.data?.let {
-                        val data: DataAuth = it.data
-                        preferenceProvider.saveLevelUser(Constants.KEY_LEVEL_USER, data.level)
-                        preferenceProvider.saveTokenUser(Constants.KEY_TOKEN_USER, data.token)
-                        preferenceProvider.saveIdentifierUser(
-                            Constants.KEY_IDENTIFIE_USER,
-                            data.identifier
-                        )
+                        when(it.success){
+                            true ->{
+                                val data: DataAuth = it.data
+                                preferenceProvider.saveLevelUser(Constants.KEY_LEVEL_USER, data.level)
+                                preferenceProvider.saveTokenUser(Constants.KEY_TOKEN_USER, data.token)
+                                preferenceProvider.saveIdentifierUser(
+                                    Constants.KEY_IDENTIFIE_USER,
+                                    data.identifier
+                                )
 
-                        Toast.makeText(context, it.message, Toast.LENGTH_SHORT).show()
-                        val intent = Intent(context, MainActivity::class.java).apply {
-                            addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
+                                Toast.makeText(context, it.message, Toast.LENGTH_SHORT).show()
+                                val intent = Intent(context, MainActivity::class.java).apply {
+                                    addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
+                                }
+                                startActivity(intent)
+                            }
+                            false -> {
+                                showToast(it.message)
+                            }
                         }
-                        startActivity(intent)
                     }
                 }
                 is Resource.Error -> {

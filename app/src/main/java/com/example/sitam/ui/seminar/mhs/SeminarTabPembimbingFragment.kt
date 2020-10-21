@@ -69,10 +69,7 @@ class SeminarTabPembimbingFragment : Fragment() {
                 is Resource.Error -> {
                     hideProgressBar()
                     response.message?.let { message ->
-                        when (message) {
-                            "Not Found" -> binding.emptyText.visibility = View.VISIBLE
-                            else -> showToast(message)
-                        }
+                        showToast(message)
                     }
                 }
                 is Resource.Loading -> {

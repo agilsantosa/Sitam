@@ -175,7 +175,7 @@ class TugasAkhirMahasiswaFragment : Fragment() {
                     response.message?.let { message ->
                         Log.i("TAG", "observeView: error")
                         when (message) {
-                            "Not Found" -> showEmpty()
+                            "" -> showEmpty()
                             else -> showToast(message)
                         }
                     }

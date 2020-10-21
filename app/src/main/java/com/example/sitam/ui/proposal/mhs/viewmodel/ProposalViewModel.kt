@@ -9,6 +9,7 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.sitam.SitamApplication
+import com.example.sitam.models.proposal.DataProposal
 import com.example.sitam.models.proposal.ResponseProposal
 import com.example.sitam.repository.SitamRepository
 import com.example.sitam.utils.Resource
@@ -28,13 +29,14 @@ class ProposalViewModel(
         safeCallGetProposal(token, identifier)
     }
 
-    private fun handleProposalResponse(response: Response<ResponseProposal>): Resource<ResponseProposal>? {
+    private fun handleProposalResponse(response: Response<ResponseProposal>): Resource<ResponseProposal> {
         if (response.isSuccessful) {
             response.body()?.let {
                 return Resource.Succes(response.message(), it)
             }
         }
         return Resource.Error(response.message())
+
     }
 
     private suspend fun safeCallGetProposal(token: String, identifier: String) {

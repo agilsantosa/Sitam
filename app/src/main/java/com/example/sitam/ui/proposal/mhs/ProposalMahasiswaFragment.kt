@@ -16,6 +16,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.sitam.MainActivity
 import com.example.sitam.R
 import com.example.sitam.databinding.FragmentProposalMahasiswaBinding
+import com.example.sitam.models.proposal.DataProposal
 import com.example.sitam.ui.proposal.mhs.viewmodel.ProposalViewModel
 import com.example.sitam.ui.seminar.mhs.RegisterSeminarMhsDialogFragment
 import com.example.sitam.ui.seminar.mhs.viewmodel.SeminarMhsViewModel
@@ -131,12 +132,15 @@ class ProposalMahasiswaFragment : Fragment() {
                     hideProgressBar()
                     response.data?.let {
                         Log.i("TAG", "observeSeminar: dipanggil")
-                        when(it.message){
+                        when (it.message) {
                             "Seminar availabel!" -> {
                                 val data = it.data
                                 idSeminar = data.id.toString()
-                                preferenceProvider.saveIdSeminar(Constants.KEY_ID_SEMINAR, idSeminar)
-                                if(data.approval == "Terdaftar Seminar [Disetujui]") {
+                                preferenceProvider.saveIdSeminar(
+                                    Constants.KEY_ID_SEMINAR,
+                                    idSeminar
+                                )
+                                if (data.approval == "Terdaftar Seminar [Disetujui]") {
                                     binding.tableRowWaktuSeminar.visibility = View.VISIBLE
                                     binding.tvWaktuSeminar.text = data.tanggal_sidang
                                 }
@@ -147,7 +151,13 @@ class ProposalMahasiswaFragment : Fragment() {
                 is Resource.Error -> {
                     hideProgressBar()
                     response.message?.let { message ->
-
+                        when (message) {
+                            "No Internet Connection" -> {
+                                binding.fabProposal.hide()
+                                showToast(message)
+                            }
+                            else -> binding.fabProposal.hide()
+                        }
                     }
                 }
                 is Resource.Loading -> {
@@ -169,7 +179,7 @@ class ProposalMahasiswaFragment : Fragment() {
                             "Proposal availabel!" -> {
                                 binding.cardViewProposalMhs.visibility = View.VISIBLE
                                 handleFab(true)
-                                val data = it.data
+                                val data: DataProposal = it.data!!
                                 preferenceProvider.saveIdProposal(
                                     Constants.KEY_ID_PROPOSAL,
                                     data.id.toString()
@@ -177,27 +187,31 @@ class ProposalMahasiswaFragment : Fragment() {
                                 binding.tvTopikProposal.text = data.topik
                                 binding.tvKonsentrasi.text = data.konsentrasi
                                 binding.tvTahunPengajuan.text = data.tahun_pengajuan.toString()
-                                binding.tvPembimbing.text = data.pembimbing
-                                val status: String = data.status
-                                if (status == "-"){
+                                binding.tvPembimbing.text = data.pembimbing ?: "-"
+                                val status: String = data.status ?: "-"
+                                if (status == "-") {
                                     binding.tvStatusProposal.text = "Menunggu Konfirmasi"
-                                }else{
+                                } else {
                                     binding.tvStatusProposal.text = data.status
                                 }
                                 binding.tvPenguji.text = data.penguji ?: "-"
                                 binding.tvNilai.text = data.nilai.toString()
                                 binding.tvJudulProposal.text = data.judul_proposal
                             }
+                            "Proposal Not available!" -> handleFab(false)
                             else -> showToast(it.message)
                         }
                     }
                 }
                 is Resource.Error -> {
                     hideProgressBar()
-                    response.message?.let {message ->
+                    response.message.let {message ->
                         Log.i("TAG", "observeView gagal: $message")
                         when (message) {
-                            "Not Found" -> handleFab(false)
+                            "No Internet Connection" -> {
+                                binding.fabProposal.hide()
+                                showToast(message)
+                            }
                             else -> binding.fabProposal.hide()
                         }
                     }

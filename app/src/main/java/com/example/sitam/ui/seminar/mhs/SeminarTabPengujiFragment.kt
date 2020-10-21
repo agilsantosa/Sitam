@@ -72,7 +72,7 @@ class SeminarTabPengujiFragment : Fragment() {
                     hideProgressBar()
                     response.message?.let { message ->
                         when (message) {
-                            "Not Found" -> binding.emptyText.visibility = View.VISIBLE
+                            "" -> binding.emptyText.visibility = View.VISIBLE
                             else -> showToast(message)
                         }
                     }

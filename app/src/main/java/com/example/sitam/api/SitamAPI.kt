@@ -6,10 +6,7 @@ import com.example.sitam.models.pesan.ResponseChat
 import com.example.sitam.models.pesan.ResponseSendChatDosen
 import com.example.sitam.models.profile.ResponseProfileDosen
 import com.example.sitam.models.profile.ResponseProfileMhs
-import com.example.sitam.models.proposal.ResponseBimbinganProposal
-import com.example.sitam.models.proposal.ResponseProposal
-import com.example.sitam.models.proposal.ResponseProposalDosen
-import com.example.sitam.models.proposal.ResponseReplyProposal
+import com.example.sitam.models.proposal.*
 import com.example.sitam.models.seminar.*
 import com.example.sitam.models.ta.*
 import okhttp3.MultipartBody
