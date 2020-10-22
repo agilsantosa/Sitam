@@ -34,6 +34,9 @@ import com.example.sitam.utils.SharedPreferenceProvider
 import kotlinx.android.synthetic.main.fragment_detail_bimbingan_proposal_dosen.*
 import kotlinx.android.synthetic.main.fragment_list_bimbingan_proposal_dosen.*
 import kotlinx.android.synthetic.main.fragment_list_bimbingan_proposal_dosen.toolbar
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 class DetailBimbinganProposalDosenFragment : Fragment() {
 
@@ -181,6 +184,10 @@ class DetailBimbinganProposalDosenFragment : Fragment() {
                         hideProgressBar()
                         response.data?.let {
                             Toast.makeText(context, it.message, Toast.LENGTH_SHORT).show()
+                            GlobalScope.launch {
+                                delay(1500)
+                                findNavController().navigate(R.id.action_detailBimbinganProposalDosenFragment_to_listBimbinganProposalDosenFragment)
+                            }
                         }
                     }
                     is Resource.Error -> {

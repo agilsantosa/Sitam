@@ -32,6 +32,9 @@ import com.example.sitam.utils.Constants
 import com.example.sitam.utils.Resource
 import com.example.sitam.utils.SharedPreferenceProvider
 import kotlinx.android.synthetic.main.fragment_detail_bimbingan_seminar_view_dosen.*
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 class DetailBimbinganSeminarViewDosenFragment : Fragment() {
 
@@ -236,6 +239,11 @@ class DetailBimbinganSeminarViewDosenFragment : Fragment() {
                     }
                 }
             })
+
+            GlobalScope.launch {
+                delay(1500)
+                findNavController().navigate(R.id.action_detailBimbinganSeminarViewDosenFragment_to_listBimbinganSeminarViewDosenFragment)
+            }
         }
 
     }
