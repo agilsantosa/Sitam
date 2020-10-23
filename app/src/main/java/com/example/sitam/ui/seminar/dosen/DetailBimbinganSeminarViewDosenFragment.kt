@@ -219,7 +219,13 @@ class DetailBimbinganSeminarViewDosenFragment : Fragment() {
                         response.data?.let {
                             Log.i("TAG", "onViewCreated: sukses")
                             when (it.message) {
-                                "Conversion Error" -> showToast("Bimbingan Seminar Reply Succesfully!")
+                                "Conversion Error" -> {
+                                    GlobalScope.launch {
+                                        delay(1500)
+                                        findNavController().navigate(R.id.action_detailBimbinganSeminarViewDosenFragment_to_listBimbinganSeminarViewDosenFragment)
+                                    }
+                                    showToast("Bimbingan Seminar Reply Succesfully!")
+                                }
                                 else -> showToast(it.message)
                             }
                         }
@@ -239,11 +245,6 @@ class DetailBimbinganSeminarViewDosenFragment : Fragment() {
                     }
                 }
             })
-
-            GlobalScope.launch {
-                delay(1500)
-                findNavController().navigate(R.id.action_detailBimbinganSeminarViewDosenFragment_to_listBimbinganSeminarViewDosenFragment)
-            }
         }
 
     }

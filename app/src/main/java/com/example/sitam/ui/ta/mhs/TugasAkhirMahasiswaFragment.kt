@@ -84,13 +84,13 @@ class TugasAkhirMahasiswaFragment : Fragment() {
                         RegisterKolokiumDialogFragment::class.java.simpleName
                     )
                 }
-//                binding.tvPenguji1.text == "-" -> {
-//                    Toast.makeText(
-//                        context,
-//                        "Mohon menunggu... Tanggal sidang belum ditentukan",
-//                        Toast.LENGTH_SHORT
-//                    ).show()
-//                }
+                binding.tvPenguji1.text == "-" -> {
+                    Toast.makeText(
+                        context,
+                        "Pendaftaran Kolokium Belum Disetujui",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
                 else -> {
                     val intent = Intent(context, KolokiumMahasiswaActivity::class.java)
                     startActivity(intent)
