@@ -10,7 +10,6 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
-import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import com.example.sitam.MainActivity
 import com.example.sitam.R
@@ -30,9 +29,6 @@ class HomeMahasiswaFragment : Fragment() {
     private val binding get() = _binding!!
     private lateinit var sharedPreferenceProvider: SharedPreferenceProvider
     private lateinit var homeMhsViewModel: HomeMhsViewModel
-    private lateinit var token: String
-    private lateinit var identifier: String
-    private lateinit var preferenceProvider: SharedPreferenceProvider
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -42,21 +38,14 @@ class HomeMahasiswaFragment : Fragment() {
         _binding =
             DataBindingUtil.inflate(inflater, R.layout.fragment_home_mahasiswa, container, false)
 
-        preferenceProvider = SharedPreferenceProvider(requireActivity().application)
-        token = preferenceProvider.getTokenUser(Constants.KEY_TOKEN_USER).toString()
-        identifier = preferenceProvider.getIdentifierUser(Constants.KEY_IDENTIFIE_USER).toString()
-
-        homeMhsViewModel = (activity as MainActivity).viewmodel
-
-
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-//        sharedPreferenceProvider = SharedPreferenceProvider(requireActivity().applicationContext)
-        homeMhsViewModel.getProfileMahasiswa(token, identifier)
+        homeMhsViewModel = (activity as MainActivity).viewmodel
+        sharedPreferenceProvider = SharedPreferenceProvider(requireActivity().applicationContext)
 
         homeMhsViewModel.profileMahasiswa.observe(viewLifecycleOwner, Observer { response ->
             when (response) {
@@ -108,13 +97,11 @@ class HomeMahasiswaFragment : Fragment() {
     }
 
     private fun showProgressBar() {
-        binding.coverShimmerVeil.visibility = View.VISIBLE
         binding.homeFeedShimmerLayout.visibility = View.VISIBLE
         binding.homeFeedShimmerLayout.startShimmer()
     }
 
     private fun hideProgressBar() {
-        binding.coverShimmerVeil.visibility = View.GONE
         binding.homeFeedShimmerLayout.visibility = View.GONE
         binding.homeFeedShimmerLayout.stopShimmer()
     }
