@@ -49,19 +49,22 @@ class DetailBimbinganTaMhsActivity : AppCompatActivity() {
                     hideProgressBar()
                     Log.i("TAG", "onCreate idTa: sukses")
                     response.data?.let {
-                        val data = it.data
-                        binding.tvDetailBimbinganSeminarCatatanDosen.text = data.catatan
-                        binding.tvDetailBimbinganSeminarStatusMhs.text = data.status
+                        when (it.message) {
+                            "Bimbingan is available!" -> {
+                                val data = it.data
+                                binding.tvDetailBimbinganSeminarCatatanDosen.text = data.catatan ?: "-"
+                                binding.tvDetailBimbinganSeminarStatusMhs.text = data.status ?: "-"
+                            }
+                            else -> binding.tvDetailBimbinganSeminarStatusMhs.text = "Belum ditanggapi"
+                        }
+
                     }
                 }
                 is Resource.Error -> {
                     hideProgressBar()
                     Log.i("TAG", "onCreate idTa: gagal")
                     response.message?.let { message ->
-                        when (message) {
-                            "Not Found" -> binding.tvDetailBimbinganSeminarStatusMhs.text = "Belum ditanggapi"
-                            else -> showToast(message)
-                        }
+                        showToast(message)
                     }
                 }
                 is Resource.Loading -> {

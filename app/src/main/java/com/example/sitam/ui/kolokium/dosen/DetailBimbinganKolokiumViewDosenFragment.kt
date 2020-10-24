@@ -193,9 +193,33 @@ class DetailBimbinganKolokiumViewDosenFragment : Fragment() {
 
             })
 
+            if (TextUtils.isEmpty(nilai)) {
+                isEmpty = true
+                binding.tiNilaiKolokium.error = "Field tidak boleh kosong"
+            }
+            binding.tiNilaiKolokium.editText?.addTextChangedListener(object : TextWatcher {
+                override fun beforeTextChanged(
+                    s: CharSequence?,
+                    start: Int,
+                    count: Int,
+                    after: Int
+                ) {
+                }
+
+                override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                }
+
+                override fun afterTextChanged(s: Editable?) {
+                    if (TextUtils.isEmpty(status)) {
+                        binding.tiNilaiKolokium.error = null
+                    }
+                }
+
+            })
+
             if (!isEmpty) {
-                Toast.makeText(activity, "id = $idBimbingan, status = $status, by = $by, idKol = $idKolokium," +
-                        "status = $status, catatan =  $catatan, nilai = $nilai", Toast.LENGTH_SHORT).show()
+//                Toast.makeText(activity, "id = $idBimbingan, status = $status, by = $by, idKol = $idKolokium," +
+//                        "status = $status, catatan =  $catatan, nilai = $nilai", Toast.LENGTH_SHORT).show()
                 detailBimbinganKolokiumViewDosenViewModel.getReplyBimbinganKolokium(
                     token,
                     idKolokium,
