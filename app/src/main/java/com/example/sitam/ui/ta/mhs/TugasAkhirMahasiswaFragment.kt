@@ -165,6 +165,7 @@ class TugasAkhirMahasiswaFragment : Fragment() {
                                 binding.tvStatusTa.text = data.status
                                 binding.tvPembimbing1.text = pembimbing1
                                 binding.tvPembimbing2.text = pembimbing2
+                                binding.tvNoSK.text = data.noSk ?: "-"
                             }
                         }
 

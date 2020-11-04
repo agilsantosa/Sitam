@@ -251,6 +251,19 @@
             app:layout_constraintEnd_toEndOf="@+id/fabDetailProposal"
             app:layout_constraintStart_toStartOf="@+id/fabDetailProposal" />
 
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fabEditProposal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:src="@drawable/ic_baseline_edit_24"
+            android:theme="@style/CustomFabThemeSecondary"
+            android:visibility="gone"
+            app:fabSize="mini"
+            app:layout_constraintBottom_toTopOf="@+id/fabSeminar"
+            app:layout_constraintEnd_toEndOf="@+id/fabSeminar"
+            app:layout_constraintStart_toStartOf="@+id/fabSeminar" />
+
         <ProgressBar
             android:id="@+id/progress_bar_proposal"
             android:layout_width="wrap_content"
@@ -285,6 +298,18 @@
             app:layout_constraintBottom_toBottomOf="@+id/fabSeminar"
             app:layout_constraintEnd_toStartOf="@+id/fabSeminar"
             app:layout_constraintTop_toTopOf="@+id/fabSeminar" />
+
+        <TextView
+            android:id="@+id/tvEditProposal"
+            style="@style/MySchool.TextAppearance.Title2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:text="@string/edit"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/fabEditProposal"
+            app:layout_constraintEnd_toStartOf="@+id/fabEditProposal"
+            app:layout_constraintTop_toTopOf="@+id/fabEditProposal" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

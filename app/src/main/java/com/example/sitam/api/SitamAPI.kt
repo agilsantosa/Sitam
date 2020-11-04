@@ -105,6 +105,23 @@ interface SitamAPI {
         identifier: String
     ): Response<ResponseProposal>
 
+    @FormUrlEncoded
+    @POST("/api/mahasiswa/proposal/update")
+    suspend fun editProposal(
+        @Field("token")
+        token: String,
+        @Field("id_proposal")
+        idProposal: String,
+        @Field("identifier")
+        identifier: String,
+        @Field("judul_proposal")
+        judulProposal: String,
+        @Field("konsentrasi")
+        konsentrasi: String,
+        @Field("topik")
+        topik: String
+    ): Response<ResponseProposal>
+
     //registerProposal
     @FormUrlEncoded
     @POST("/api/mahasiswa/proposal/create")

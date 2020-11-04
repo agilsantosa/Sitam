@@ -53,6 +53,16 @@ class SitamRepository() {
     ) =
         RetrofitInstance.api.addNewProposal(token, identifier, judulProposal, konsentrasi, topik)
 
+    suspend fun editProposal(
+        token: String,
+        idProposal: String,
+        identifier: String,
+        judulProposal: String,
+        konsentrasi: String,
+        topik: String
+    ) =
+        RetrofitInstance.api.editProposal(token,idProposal, identifier, judulProposal, konsentrasi, topik)
+
     suspend fun uploadFileProposal(
         token: String,
         idProposal: String,

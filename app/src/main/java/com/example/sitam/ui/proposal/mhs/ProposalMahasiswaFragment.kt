@@ -36,6 +36,7 @@ class ProposalMahasiswaFragment : Fragment() {
     private val seminarMhsViewModel: SeminarMhsViewModel by activityViewModels()
     private lateinit var token: String
     private lateinit var identifier: String
+    private var status: String? = null
     private var idSeminar: String = ""
 
     companion object {
@@ -86,6 +87,27 @@ class ProposalMahasiswaFragment : Fragment() {
                 }
             }
         }
+
+        binding.fabEditProposal.setOnClickListener {
+            when(status){
+                "Disetujui" -> showToast("Tidak bisa diedit! Proposal anda sudah disetujui")
+                "Terdaftar Seminar [Disetujui]" -> showToast("Tidak bisa diedit! Proposal anda sudah disetujui")
+                "Terdaftar Seminar [Pending]" -> showToast("Tidak bisa diedit! Proposal anda sudah disetujui")
+                else -> {
+                    val judulProposal = binding.tvJudulProposal.text.toString()
+                    val konsentrasiProposal = binding.tvKonsentrasi.text.toString()
+                    val topikProposal = binding.tvTopikProposal.text.toString()
+
+                    val bundle = Bundle().apply {
+                        putString("judulProposal", judulProposal )
+                        putString("konsentrasi",konsentrasiProposal )
+                        putString("topik", topikProposal)
+                    }
+                    findNavController().navigate(R.id.action_proposalMahasiswaFragment2_to_editProposalFragment, bundle)
+                }
+            }
+        }
+
 
         binding.fabSeminar.setOnClickListener {
             when {
@@ -156,6 +178,9 @@ class ProposalMahasiswaFragment : Fragment() {
                                 binding.fabProposal.hide()
                                 showToast(message)
                             }
+                            "Network Failure" -> {
+                                showToast(message)
+                            }
                             else -> binding.fabProposal.hide()
                         }
                     }
@@ -188,7 +213,7 @@ class ProposalMahasiswaFragment : Fragment() {
                                 binding.tvKonsentrasi.text = data.konsentrasi
                                 binding.tvTahunPengajuan.text = data.tahun_pengajuan.toString()
                                 binding.tvPembimbing.text = data.pembimbing ?: "-"
-                                val status: String = data.status ?: "-"
+                                status = data.status ?: "-"
                                 if (status == "-") {
                                     binding.tvStatusProposal.text = "Menunggu Konfirmasi"
                                 } else {
@@ -210,6 +235,9 @@ class ProposalMahasiswaFragment : Fragment() {
                         when (message) {
                             "No Internet Connection" -> {
                                 binding.fabProposal.hide()
+                                showToast(message)
+                            }
+                            "Network Failure" -> {
                                 showToast(message)
                             }
                             else -> binding.fabProposal.hide()
@@ -237,11 +265,14 @@ class ProposalMahasiswaFragment : Fragment() {
         val animOpen = AnimationUtils.loadAnimation(context, R.anim.fab_open)
         binding.fabDetailProposal.animation = animOpen
         binding.fabSeminar.animation = animOpen
+        binding.fabEditProposal.animation = animOpen
 
         binding.fabDetailProposal.visibility = View.VISIBLE
         binding.fabSeminar.visibility = View.VISIBLE
+        binding.fabEditProposal.visibility = View.VISIBLE
         binding.tvSeminar.visibility = View.VISIBLE
         binding.tvDetail.visibility = View.VISIBLE
+        binding.tvEditProposal.visibility = View.VISIBLE
 //        binding.cardViewProposalMhs.visibility = View.VISIBLE
         isOpen = true
     }
@@ -250,11 +281,14 @@ class ProposalMahasiswaFragment : Fragment() {
         val animClose = AnimationUtils.loadAnimation(context, R.anim.fab_close)
         binding.fabDetailProposal.animation = animClose
         binding.fabSeminar.animation = animClose
+        binding.fabEditProposal.animation = animClose
 
         binding.fabDetailProposal.visibility = View.GONE
         binding.fabSeminar.visibility = View.GONE
+        binding.fabEditProposal.visibility = View.GONE
         binding.tvSeminar.visibility = View.GONE
         binding.tvDetail.visibility = View.GONE
+        binding.tvEditProposal.visibility = View.GONE
 //        binding.cardViewProposalMhs.visibility = View.GONE
         isOpen = false
     }

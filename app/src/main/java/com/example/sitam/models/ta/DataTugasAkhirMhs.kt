@@ -17,6 +17,9 @@ data class DataTugasAkhirMhs(
     val penguji1: String?,
     val penguji2: String?,
     val status: String,
+    val status_pembimbing1: String?,
+    val status_pembimbing2: String?,
+    val noSk: String?,
     val tahun_pengajuan: Int,
     val topik_tugas_akhir: String,
     val updated_at: String

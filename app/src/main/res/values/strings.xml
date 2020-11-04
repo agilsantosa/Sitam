@@ -19,7 +19,7 @@
     <string name="tugas_akhir">Tugas Akhir</string>
     <string name="kolokium">Kolokium</string>
     <string name="pesan">Pesan</string>
-    <string name="universitas_indraprasta">Universitas Indraprasta</string>
+    <string name="universitas_indraprasta">Universitas Singaperbangsa Karawang</string>
     <string name="iv_background">iv_background</string>
     <string name="topik_proposal">Topik Proposal</string>
     <string name="konsentrasi">Konsentrasi</string>
@@ -81,6 +81,9 @@
     <string name="list_bimbingan_kolokium">List Bimbingan Kolokium</string>
     <string name="tidak_ada_pesan">Tidak ada pesan</string>
     <string name="kirim">Kirim</string>
+    <string name="nomor_sk">Nomor SK</string>
+    <string name="edit">Edit</string>
+    <string name="update">Update</string>
     <string-array name="konsentrasi_array">
         <item>Data Science</item>
         <item>Networking</item>

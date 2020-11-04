@@ -35,7 +35,7 @@
             android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="8dp"
-            android:visibility="gone"
+            android:visibility="visible"
             app:cardBackgroundColor="#F0F0F0"
             app:cardCornerRadius="8dp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -208,6 +208,24 @@
 
                     <TextView
                         android:id="@+id/tv_penguji2"
+                        style="@style/MySchool.TextAppearance.Title1"
+                        android:layout_marginStart="10dp"
+                        android:text="@string/strip" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="4dp">
+
+                    <TextView
+                        android:id="@+id/lbl_noSK"
+                        style="@style/MySchool.TextAppearance.Title1"
+                        android:text="@string/nomor_sk"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tv_noSK"
                         style="@style/MySchool.TextAppearance.Title1"
                         android:layout_marginStart="10dp"
                         android:text="@string/strip" />

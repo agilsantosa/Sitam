@@ -5,6 +5,208 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".ui.home.HomeMahasiswaFragment">
 
+<!--    <ScrollView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent">-->
+
+<!--        <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--            android:id="@+id/fl_home"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:orientation="vertical"-->
+<!--            android:visibility="visible">-->
+
+<!--            <androidx.appcompat.widget.Toolbar-->
+<!--                android:id="@+id/toolbar"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="?attr/actionBarSize"-->
+<!--                android:theme="@style/MySchoolToolbarTheme"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                app:layout_constraintHorizontal_bias="0.5"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                app:layout_constraintTop_toTopOf="parent">-->
+
+<!--                <TextView-->
+<!--                    android:id="@+id/activity_classroom_detail_toolbar_title"-->
+<!--                    style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:ellipsize="end"-->
+<!--                    android:fontFamily="@font/airbnb_cereal_medium"-->
+<!--                    android:lines="1"-->
+<!--                    android:text="@string/beranda"-->
+<!--                    android:textColor="@color/toolbarFontColor" />-->
+
+<!--            </androidx.appcompat.widget.Toolbar>-->
+
+<!--            <ImageView-->
+<!--                android:id="@+id/cover_shimmer_veil"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="0dp"-->
+<!--                android:src="@color/colorPureWhite"-->
+<!--                android:visibility="gone"-->
+<!--                app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                app:layout_constraintTop_toBottomOf="@id/toolbar" />-->
+
+<!--            <ImageView-->
+<!--                android:id="@+id/fragment_account_company_backdrop"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="0dp"-->
+<!--                android:contentDescription="@string/iv_background"-->
+<!--                android:scaleType="centerCrop"-->
+<!--                android:src="@drawable/img_shujin_company_back"-->
+<!--                app:layout_constraintBottom_toBottomOf="@id/fragment_account_account_layout"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                app:layout_constraintTop_toBottomOf="@id/toolbar" />-->
+
+<!--            <ImageView-->
+<!--                android:id="@+id/fragment_account_company_backdrop_veil"-->
+<!--                android:layout_width="0dp"-->
+<!--                android:layout_height="0dp"-->
+<!--                android:contentDescription="@string/iv_background"-->
+<!--                android:src="@color/colorPureBlack50"-->
+<!--                app:layout_constraintBottom_toTopOf="@id/fragment_account_account_layout"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                app:layout_constraintTop_toBottomOf="@id/toolbar" />-->
+
+<!--            <LinearLayout-->
+<!--                android:id="@+id/fragment_account_company_layout"-->
+<!--                android:layout_width="0dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:gravity="center"-->
+<!--                android:orientation="vertical"-->
+<!--                android:paddingTop="24dp"-->
+<!--                app:layout_constraintEnd_toEndOf="@id/fragment_account_company_backdrop"-->
+<!--                app:layout_constraintStart_toStartOf="@id/fragment_account_company_backdrop"-->
+<!--                app:layout_constraintTop_toBottomOf="@id/toolbar">-->
+
+<!--                <de.hdodenhof.circleimageview.CircleImageView-->
+<!--                    android:id="@+id/fragment_account_company_logo"-->
+<!--                    android:layout_width="100dp"-->
+<!--                    android:layout_height="100dp"-->
+<!--                    android:src="@drawable/logo_unsika" />-->
+
+<!--                <TextView-->
+<!--                    android:id="@+id/fragment_account_company_name"-->
+<!--                    style="@style/MySchool.TextAppearance.Title1"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginTop="8dp"-->
+<!--                    android:text="@string/universitas_indraprasta"-->
+<!--                    android:textColor="@color/colorPureWhite" />-->
+<!--            </LinearLayout>-->
+
+<!--            <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--                android:id="@+id/fragment_account_account_layout"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginTop="24dp"-->
+<!--                android:background="@color/colorPureBlack75"-->
+<!--                android:paddingStart="16dp"-->
+<!--                android:paddingTop="24dp"-->
+<!--                android:paddingEnd="16dp"-->
+<!--                android:paddingBottom="24dp"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                app:layout_constraintTop_toBottomOf="@id/fragment_account_company_layout">-->
+
+<!--                <de.hdodenhof.circleimageview.CircleImageView-->
+<!--                    android:id="@+id/circleImageView"-->
+<!--                    android:layout_width="56dp"-->
+<!--                    android:layout_height="56dp"-->
+<!--                    android:src="@drawable/ic_profile_white"-->
+<!--                    app:civ_border_color="@color/colorGrey"-->
+<!--                    app:civ_border_width="1dp"-->
+<!--                    app:layout_constraintStart_toStartOf="parent"-->
+<!--                    app:layout_constraintTop_toTopOf="parent" />-->
+
+<!--                <LinearLayout-->
+<!--                    android:id="@+id/fragment_account_my_name_layout"-->
+<!--                    android:layout_width="200dp"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginStart="8dp"-->
+<!--                    android:layout_marginEnd="8dp"-->
+<!--                    android:orientation="vertical"-->
+<!--                    app:layout_constraintBottom_toBottomOf="@id/circleImageView"-->
+<!--                    app:layout_constraintEnd_toStartOf="@+id/btnLogout"-->
+<!--                    app:layout_constraintHorizontal_bias="0.0"-->
+<!--                    app:layout_constraintStart_toEndOf="@id/circleImageView"-->
+<!--                    app:layout_constraintTop_toTopOf="@id/circleImageView">-->
+
+<!--                    <TextView-->
+<!--                        android:id="@+id/tvName"-->
+<!--                        style="@style/MySchool.TextAppearance.Title1"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:scrollHorizontally="false"-->
+<!--                        android:textColor="@color/colorPureWhite" />-->
+
+<!--                    <TextView-->
+<!--                        android:id="@+id/tvNpm"-->
+<!--                        style="@style/MySchool.TextAppearance.Title1"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:textColor="@color/colorPureWhite" />-->
+
+<!--                </LinearLayout>-->
+
+<!--                <mehdi.sakout.fancybuttons.FancyButton-->
+<!--                    android:id="@+id/btnLogout"-->
+<!--                    style="@style/MySchool.TextAppearance.Title1"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:paddingLeft="15dp"-->
+<!--                    android:paddingTop="5dp"-->
+<!--                    android:paddingRight="15dp"-->
+<!--                    android:paddingBottom="5dp"-->
+<!--                    app:layout_constraintBottom_toBottomOf="@id/fragment_account_account_layout"-->
+<!--                    app:layout_constraintEnd_toEndOf="parent"-->
+<!--                    app:layout_constraintTop_toTopOf="@id/fragment_account_account_layout"-->
+<!--                    fancy:fb_defaultColor="@color/red_color"-->
+<!--                    fancy:fb_focusColor="#80000000"-->
+<!--                    fancy:fb_radius="36dp"-->
+<!--                    fancy:fb_text="Logout" />-->
+<!--            </androidx.constraintlayout.widget.ConstraintLayout>-->
+
+<!--                        <com.facebook.shimmer.ShimmerFrameLayout-->
+<!--                            android:id="@+id/home_feed_shimmer_layout"-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="match_parent"-->
+<!--                            android:clickable="true"-->
+<!--                            android:focusable="true"-->
+<!--                            android:visibility="visible"-->
+<!--                            app:layout_constraintEnd_toEndOf="parent"-->
+<!--                            app:layout_constraintHorizontal_bias="0.5"-->
+<!--                            app:layout_constraintStart_toStartOf="parent"-->
+<!--                            app:layout_constraintTop_toBottomOf="@id/toolbar"-->
+<!--                            app:shimmer_auto_start="false">-->
+
+<!--                            <LinearLayout-->
+<!--                                android:layout_width="match_parent"-->
+<!--                                android:layout_height="match_parent"-->
+<!--                                android:orientation="vertical">-->
+
+<!--                                <include layout="@layout/home_shimmer" />-->
+
+
+<!--                            </LinearLayout>-->
+
+<!--                        </com.facebook.shimmer.ShimmerFrameLayout>-->
+
+<!--&lt;!&ndash;            <ProgressBar&ndash;&gt;-->
+<!--            &lt;!&ndash;                android:id="@+id/home_feed_shimmer_layout"&ndash;&gt;-->
+<!--            &lt;!&ndash;                android:layout_width="wrap_content"&ndash;&gt;-->
+<!--            &lt;!&ndash;                android:layout_height="wrap_content"&ndash;&gt;-->
+<!--            &lt;!&ndash;                app:layout_constraintBottom_toBottomOf="parent"&ndash;&gt;-->
+<!--            &lt;!&ndash;                app:layout_constraintEnd_toEndOf="parent"&ndash;&gt;-->
+<!--            &lt;!&ndash;                app:layout_constraintHorizontal_bias="0.5"&ndash;&gt;-->
+<!--            &lt;!&ndash;                app:layout_constraintStart_toStartOf="parent"&ndash;&gt;-->
+<!--            &lt;!&ndash;                app:layout_constraintTop_toTopOf="parent" />&ndash;&gt;-->
+<!--        </androidx.constraintlayout.widget.ConstraintLayout>-->
+
+<!--    </ScrollView>-->
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -18,35 +220,23 @@
 
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbar"
+                android:theme="@style/MySchoolToolbarTheme"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                android:theme="@style/MySchoolToolbarTheme"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
                 <TextView
                     android:id="@+id/activity_classroom_detail_toolbar_title"
-                    style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:ellipsize="end"
-                    android:fontFamily="@font/airbnb_cereal_medium"
-                    android:lines="1"
+                    style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
                     android:text="@string/beranda"
-                    android:textColor="@color/toolbarFontColor" />
+                    android:lines="1"
+                    android:ellipsize="end"
+                    android:textColor="@color/toolbarFontColor"
+                    android:fontFamily="@font/airbnb_cereal_medium" />
 
             </androidx.appcompat.widget.Toolbar>
-
-            <ImageView
-                android:id="@+id/cover_shimmer_veil"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:src="@color/colorPureWhite"
-                android:visibility="gone"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/toolbar" />
 
             <ImageView
                 android:id="@+id/fragment_account_company_backdrop"
@@ -86,7 +276,7 @@
                     android:id="@+id/fragment_account_company_logo"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
-                    android:src="@drawable/logo_unidra" />
+                    android:src="@drawable/logo_unsika" />
 
                 <TextView
                     android:id="@+id/fragment_account_company_name"
@@ -124,7 +314,7 @@
 
                 <LinearLayout
                     android:id="@+id/fragment_account_my_name_layout"
-                    android:layout_width="200dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
                     android:orientation="vertical"
@@ -135,7 +325,6 @@
                     <TextView
                         android:id="@+id/tvName"
                         style="@style/MySchool.TextAppearance.Title1"
-                        android:scrollHorizontally="false"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="@color/colorPureWhite" />
@@ -166,6 +355,15 @@
                     fancy:fb_radius="36dp"
                     fancy:fb_text="Logout" />
             </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <ImageView
+                android:id="@+id/cover_shimmer_veil"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:src="@color/colorPureWhite"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/toolbar" />
 
             <com.facebook.shimmer.ShimmerFrameLayout
                 android:id="@+id/home_feed_shimmer_layout"

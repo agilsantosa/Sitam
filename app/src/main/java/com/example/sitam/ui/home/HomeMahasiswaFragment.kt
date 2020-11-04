@@ -97,11 +97,13 @@ class HomeMahasiswaFragment : Fragment() {
     }
 
     private fun showProgressBar() {
+        binding.coverShimmerVeil.visibility = View.VISIBLE
         binding.homeFeedShimmerLayout.visibility = View.VISIBLE
         binding.homeFeedShimmerLayout.startShimmer()
     }
 
     private fun hideProgressBar() {
+        binding.coverShimmerVeil.visibility = View.GONE
         binding.homeFeedShimmerLayout.visibility = View.GONE
         binding.homeFeedShimmerLayout.stopShimmer()
     }

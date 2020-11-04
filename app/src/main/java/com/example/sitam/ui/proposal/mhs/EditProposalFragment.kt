@@ -1,19 +1,21 @@
 package com.example.sitam.ui.proposal.mhs
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Spinner
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
-import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.example.sitam.R
-import com.example.sitam.databinding.FragmentAddProposalBinding
-import com.example.sitam.ui.proposal.mhs.viewmodel.AddNewProposalViewModel
+import com.example.sitam.databinding.FragmentEditProposalBinding
+import com.example.sitam.ui.proposal.mhs.viewmodel.EditProposalViewModel
 import com.example.sitam.utils.Constants
 import com.example.sitam.utils.Resource
 import com.example.sitam.utils.SharedPreferenceProvider
@@ -23,12 +25,12 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 
-class AddProposalFragment : Fragment() {
+class EditProposalFragment : Fragment() {
 
-    private var _binding: FragmentAddProposalBinding? = null
+    private var _binding: FragmentEditProposalBinding? = null
     private val binding get() = _binding!!
-    private val addNewProposalViewModel: AddNewProposalViewModel by activityViewModels()
-
+    private val editProposalViewModel: EditProposalViewModel by viewModels()
+    private val args: EditProposalFragmentArgs by navArgs()
     private lateinit var preference: SharedPreferenceProvider
 
     override fun onCreateView(
@@ -37,45 +39,59 @@ class AddProposalFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         _binding =
-            DataBindingUtil.inflate(inflater, R.layout.fragment_add_proposal, container, false)
+            DataBindingUtil.inflate(inflater, R.layout.fragment_edit_proposal, container, false)
 
         preference = SharedPreferenceProvider(requireActivity().applicationContext)
+        binding.editProposalTitle.setText(arguments?.getString("judulProposal"))
+        setSpinText(binding.editProposalKonsentrasi, arguments?.getString("konsentrasi"))
+        binding.editProposalTopik.setText(arguments?.getString("topik"))
         return binding.root
+    }
+
+    fun setSpinText(spin: Spinner, text: String?) {
+        for (i in 0 until spin.adapter.count) {
+            if (spin.adapter.getItem(i).toString().equals(text!!)) {
+                spin.setSelection(i)
+            }
+        }
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         observeView()
-
         binding.toolbar.setNavigationOnClickListener {
-            findNavController().navigate(R.id.action_addProposalFragment_to_proposalMahasiswaFragment2)
+            findNavController().navigate(R.id.action_editProposalFragment_to_proposalMahasiswaFragment2)
         }
 
-        binding.addNewProposalAddButton.setOnClickListener {
+        binding.editProposalAddButton.setOnClickListener {
             val token = preference.getTokenUser(Constants.KEY_TOKEN_USER)
             val identifier = preference.getIdentifierUser(Constants.KEY_IDENTIFIE_USER)
-            val konsentrasi = binding.addNewProposalKonsentrasi.selectedItem.toString()
-            val judulProposal = binding.addNewProposalTitle.text.toString()
-            val topik = binding.addNewProposalTopik.text.toString()
+            val idProposal = preference.getIdProposal(Constants.KEY_ID_PROPOSAL)!!
+
+            val konsentrasi = binding.editProposalKonsentrasi.selectedItem.toString()
+            val judulProposal = binding.editProposalTitle.text.toString()
+            val topik = binding.editProposalTopik.text.toString()
 
             if (token!!.isNotEmpty() and identifier!!.isNotEmpty() and konsentrasi.isNotEmpty() and judulProposal.isNotEmpty() and topik.isNotEmpty()) {
-                addNewProposalViewModel.addNewProposal(
+                editProposalViewModel.editProposal(
                     token,
+                    idProposal,
                     identifier,
                     judulProposal,
                     konsentrasi,
                     topik
                 )
-                GlobalScope.launch {
-                    delay(1500)
-                    findNavController().navigate(R.id.action_addProposalFragment_to_proposalMahasiswaFragment2)
-                }
+//                GlobalScope.launch {
+//                    delay(1500)
+//                    findNavController().navigate(R.id.action_editProposalFragment_to_proposalMahasiswaFragment2)
+//                }
             } else {
                 Toast.makeText(activity, "Field Cannot Empty", Toast.LENGTH_SHORT).show()
+//            }
             }
         }
-    }
 
+    }
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         (activity as AppCompatActivity).apply {
@@ -86,29 +102,33 @@ class AddProposalFragment : Fragment() {
                 setDisplayShowTitleEnabled(false)
             }
         }
-
     }
 
+
     private fun observeView() {
-        addNewProposalViewModel.addProposal.observe(viewLifecycleOwner, Observer { response ->
+        editProposalViewModel.editProposal.observe(viewLifecycleOwner, Observer { response ->
             when (response) {
                 is Resource.Succes -> {
-                    binding.addNewSessionProgressBar.visibility = View.GONE
+                    binding.editSessionProgressBar.visibility = View.GONE
                     response.data?.let {
-                        Toast.makeText(activity, it.message, Toast.LENGTH_SHORT).show()
+                        showToast(it.message)
                     }
                 }
                 is Resource.Error -> {
-                    binding.addNewSessionProgressBar.visibility = View.GONE
+                    binding.editSessionProgressBar.visibility = View.GONE
                     response.message?.let { message ->
-                        Toast.makeText(activity, message, Toast.LENGTH_SHORT).show()
+                        showToast(message)
                     }
                 }
                 is Resource.Loading -> {
-                    binding.addNewSessionProgressBar.visibility = View.VISIBLE
+                    binding.editSessionProgressBar.visibility = View.VISIBLE
                 }
             }
         })
     }
 
+    private fun showToast(message: String) {
+        Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
+    }
 }
+
